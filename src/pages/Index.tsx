@@ -24,10 +24,10 @@ const Index = () => (
     {/* ============ HERO ============ */}
     <section className="snap-section relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Hero image — full bleed on right, blending into background */}
-      <div className="hidden lg:block absolute inset-y-0 right-0 w-[55%] flex items-end justify-center" style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}>
-        <img src={heroImg} alt="Ritesh Watts — Author, Entrepreneur, Investor, and Speaker" width={960} height={1080} className="w-auto h-[85%] object-contain object-bottom absolute bottom-0 right-[10%]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-[hsl(var(--background)/0.1)] to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-60" />
+      <div className="hidden lg:block absolute inset-y-0 right-0 w-[50%]" style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}>
+        <img src={heroImg} alt="Ritesh Watts — Author, Entrepreneur, Investor, and Speaker" className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[95%] w-auto object-contain" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-50" />
       </div>
 
       <div className="ambient-glow w-[600px] h-[600px] bg-primary/10 -top-40 -left-40" />
