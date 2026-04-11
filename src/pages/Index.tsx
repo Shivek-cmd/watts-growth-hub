@@ -82,7 +82,7 @@ const Index = () => (
 
       <div className="container relative z-10">
         <div className="max-w-2xl">
-        <p className="section-label reveal mt-6 inline-flex items-center gap-2 sm:gap-1 rounded-full border border-gold/50 bg-[hsl(var(--background)/0.78)] px-4 py-2 sm:mt-0 tracking-wide">
+        <p className="section-label reveal mt-6 inline-flex flex-wrap items-center gap-2  rounded-full border border-gold/50 bg-[hsl(var(--background)/0.78)] px-4 py-2 sm:mt-0 tracking-wide">
           <span>Author</span>
           <span className="dot-blink opacity-60">·</span>
           <span>Entrepreneur</span>
