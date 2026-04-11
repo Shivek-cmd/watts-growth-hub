@@ -294,13 +294,6 @@ const Index = () => (
               Practical, energizing talks on AI, founder mindset, business systems, and strategic growth for ambitious audiences.
             </p>
           </div>
-          <div className="reveal-right">
-            <Button variant="hero" size="lg" asChild className="btn-magnetic">
-              <Link to="/speaking">
-                View Speaking Topics <ArrowRight size={15} className="ml-1.5" />
-              </Link>
-            </Button>
-          </div>
         </div>
 
         {/* Topic cards — full width */}
@@ -323,6 +316,14 @@ const Index = () => (
               <ArrowRight size={16} className="mt-4 text-muted-foreground/30 group-hover:text-gold group-hover:translate-x-1 transition-all duration-300" />
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center reveal delay-3">
+          <Button variant="hero" size="lg" asChild className="btn-magnetic">
+            <Link to="/speaking">
+              View Speaking Topics <ArrowRight size={15} className="ml-1.5" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
