@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero-ritesh.jpg";
 import bgAbout from "@/assets/bg-about.jpg";
-import speakingImg from "@/assets/speaking-stage.jpg";
+
 import podcastImg from "@/assets/media-podcast.jpg";
 import blogAi from "@/assets/blog-ai.jpg";
 import blogMigration from "@/assets/blog-migration.jpg";
