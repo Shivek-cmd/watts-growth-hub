@@ -10,6 +10,7 @@ import Media from "./pages/Media.tsx";
 import InviteRitesh from "./pages/InviteRitesh.tsx";
 import ApplyGuest from "./pages/ApplyGuest.tsx";
 import Blog from "./pages/Blog.tsx";
+import BlogPost from "./pages/BlogPost.tsx";
 import BrandsVentures from "./pages/BrandsVentures.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
