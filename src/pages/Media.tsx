@@ -1,8 +1,9 @@
 import Layout from "@/components/Layout";
 import Section from "@/components/SectionWrapper";
+import Card3D from "@/components/Card3D";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Mic, Brain, Globe, Palette, Building2, Target } from "lucide-react";
 import podcastImg from "@/assets/media-podcast.jpg";
 
 const topicsCovered = [
