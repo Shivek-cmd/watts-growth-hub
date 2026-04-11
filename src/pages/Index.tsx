@@ -14,9 +14,24 @@ import blogMigration from "@/assets/blog-migration.jpg";
 import blogWealth from "@/assets/blog-wealth.jpg";
 
 const blogPosts = [
-  { title: "Why AI Is the Founder's Best Leverage Tool", excerpt: "Practical ways founders can use AI to move faster, decide better, and build smarter systems.", pillar: "Build", image: blogAi },
-  { title: "Reverse Migration: When Going Back Becomes Going Forward", excerpt: "Strategic thinking about when and how to move back — and how to make it work.", pillar: "Move", image: blogMigration },
-  { title: "Building Wealth Through Business, Not Just Savings", excerpt: "Why business ownership remains the most powerful wealth-building vehicle for ambitious people.", pillar: "Grow", image: blogWealth },
+  {
+    title: "Why AI Is the Founder's Best Leverage Tool",
+    excerpt: "Practical ways founders can use AI to move faster, decide better, and build smarter systems.",
+    pillar: "Build",
+    image: blogAi,
+  },
+  {
+    title: "Reverse Migration: When Going Back Becomes Going Forward",
+    excerpt: "Strategic thinking about when and how to move back — and how to make it work.",
+    pillar: "Move",
+    image: blogMigration,
+  },
+  {
+    title: "Building Wealth Through Business, Not Just Savings",
+    excerpt: "Why business ownership remains the most powerful wealth-building vehicle for ambitious people.",
+    pillar: "Grow",
+    image: blogWealth,
+  },
 ];
 
 const Index = () => (
@@ -24,8 +39,15 @@ const Index = () => (
     {/* ============ HERO ============ */}
     <section className="snap-section relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Hero image — full bleed on right, blending into background */}
-      <div className="hidden lg:block absolute inset-y-0 right-0 w-[50%]" style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}>
-        <img src={heroImg} alt="Ritesh Watts — Author, Entrepreneur, Investor, and Speaker" className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[95%] min-w-[500px] w-auto object-contain" />
+      <div
+        className="hidden lg:block absolute inset-y-0 right-0 w-[50%]"
+        style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}
+      >
+        <img
+          src={heroImg}
+          alt="Ritesh Watts — Author, Entrepreneur, Investor, and Speaker"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[95%] min-w-[800px] w-auto object-contain"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-transparent to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-50" />
       </div>
@@ -42,26 +64,40 @@ const Index = () => (
 
       <div className="particle-bg">
         {[...Array(12)].map((_, i) => (
-          <div key={i} className="dot" style={{
-            left: `${10 + Math.random() * 80}%`, top: `${10 + Math.random() * 80}%`,
-            animationDelay: `${i * 0.8}s`, animationDuration: `${8 + Math.random() * 6}s`,
-            ['--tx' as string]: `${(Math.random() - 0.5) * 80}px`,
-            ['--ty' as string]: `${-30 - Math.random() * 60}px`,
-          }} />
+          <div
+            key={i}
+            className="dot"
+            style={{
+              left: `${10 + Math.random() * 80}%`,
+              top: `${10 + Math.random() * 80}%`,
+              animationDelay: `${i * 0.8}s`,
+              animationDuration: `${8 + Math.random() * 6}s`,
+              ["--tx" as string]: `${(Math.random() - 0.5) * 80}px`,
+              ["--ty" as string]: `${-30 - Math.random() * 60}px`,
+            }}
+          />
         ))}
       </div>
 
       <div className="container relative z-10">
         <div className="max-w-2xl">
-          <p className="section-label reveal">Author <span className="dot-blink">·</span> Entrepreneur <span className="dot-blink">·</span> Investor <span className="dot-blink">·</span> Speaker</p>
+          <p className="section-label reveal">
+            Author <span className="dot-blink">·</span> Entrepreneur <span className="dot-blink">·</span> Investor{" "}
+            <span className="dot-blink">·</span> Speaker
+          </p>
           <h1 className="mt-6 font-display text-hero font-bold tracking-tight leading-[1.05] reveal delay-1">
-            Ritesh{" "}<span className="text-shimmer">Watts</span>
+            Ritesh <span className="text-shimmer">Watts</span>
           </h1>
-          <p className="mt-8 text-lg leading-relaxed text-muted-foreground max-w-2xl reveal delay-2" style={{ maxWidth: "72ch" }}>
-            Helping ambitious people build smarter businesses, move across borders strategically, and grow long-term wealth.
+          <p
+            className="mt-8 text-lg leading-relaxed text-muted-foreground max-w-2xl reveal delay-2"
+            style={{ maxWidth: "72ch" }}
+          >
+            Helping ambitious people build smarter businesses, move across borders strategically, and grow long-term
+            wealth.
           </p>
           <p className="mt-4 text-sm text-muted-foreground/70 max-w-xl reveal delay-3">
-            Through business, AI, migration insight, media, and founder-led thinking — practical ideas, real stories, and strategic frameworks for people who grow with intention.
+            Through business, AI, migration insight, media, and founder-led thinking — practical ideas, real stories,
+            and strategic frameworks for people who grow with intention.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4 reveal delay-4">
             <Button variant="hero" size="lg" asChild className="btn-magnetic">
@@ -77,7 +113,11 @@ const Index = () => (
               { label: "Read the Blog", href: "/blog" },
               { label: "Subscribe to Newsletter", href: "/#newsletter" },
             ].map((link) => (
-              <Link key={link.label} to={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 group link-underline">
+              <Link
+                key={link.label}
+                to={link.href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 group link-underline"
+              >
                 {link.label}
                 <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
@@ -88,23 +128,46 @@ const Index = () => (
     </section>
 
     {/* ============ BUILD · MOVE · GROW ============ */}
-    <section className="snap-section relative overflow-hidden bg-[hsl(var(--surface-secondary))]" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)" }} />
+    <section
+      className="snap-section relative overflow-hidden bg-[hsl(var(--surface-secondary))]"
+      style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}
+    >
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)",
+        }}
+      />
       <div className="container relative z-10">
         <div className="text-center max-w-3xl mx-auto reveal">
           <p className="section-label">Three Pillars</p>
           <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Build · Move · Grow</h2>
           <p className="mt-6 text-muted-foreground leading-relaxed mx-auto" style={{ maxWidth: "72ch" }}>
-            Ritesh's work sits across three connected domains. Whether you are building a smarter business, moving across borders with purpose, or growing long-term wealth — there is a framework, a story, and a system that can help.
+            Ritesh's work sits across three connected domains. Whether you are building a smarter business, moving
+            across borders with purpose, or growing long-term wealth — there is a framework, a story, and a system that
+            can help.
           </p>
         </div>
         <div className="mt-16 grid gap-8 md:grid-cols-3">
           {[
-            { title: "Build", text: "Founder mindset, systems, decisions, and AI leverage to build smarter businesses and stronger positioning." },
-            { title: "Move", text: "Career choices, migration, reverse migration, and cross-border opportunities across India, Canada, and beyond." },
-            { title: "Grow", text: "Wealth-building through business, real estate, and personal growth for long-term freedom and optionality." },
+            {
+              title: "Build",
+              text: "Founder mindset, systems, decisions, and AI leverage to build smarter businesses and stronger positioning.",
+            },
+            {
+              title: "Move",
+              text: "Career choices, migration, reverse migration, and cross-border opportunities across India, Canada, and beyond.",
+            },
+            {
+              title: "Grow",
+              text: "Wealth-building through business, real estate, and personal growth for long-term freedom and optionality.",
+            },
           ].map((p, i) => (
-            <Card3D key={p.title} className={`card-glow rounded-2xl p-8 md:p-10 text-center reveal delay-${i + 1} group`}>
+            <Card3D
+              key={p.title}
+              className={`card-glow rounded-2xl p-8 md:p-10 text-center reveal delay-${i + 1} group`}
+            >
               <div className="h-px w-12 bg-gold/60 group-hover:w-20 transition-all duration-500 mb-6 mx-auto" />
               <h3 className="font-display text-3xl font-bold tracking-tight">
                 <span className="text-gradient-gold">{p.title}</span>
@@ -121,20 +184,50 @@ const Index = () => (
       <div className="max-w-2xl reveal-left">
         <p className="section-label">Impact Areas</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">What Ritesh Does</h2>
-        <p className="mt-4 text-muted-foreground">Four connected areas of impact — all rooted in one founder-led vision.</p>
+        <p className="mt-4 text-muted-foreground">
+          Four connected areas of impact — all rooted in one founder-led vision.
+        </p>
       </div>
       <div className="mt-16 grid gap-px bg-[hsl(var(--border))] md:grid-cols-2 rounded-lg overflow-hidden">
         {[
-          { title: "Work With Ritesh", text: "Strategic consulting for founders and leaders — business direction, positioning, personal brand strategy, and systems that create leverage.", cta: "Work With Ritesh", href: "/contact" },
-          { title: "Speaking", text: "Keynotes, panels, fireside chats, and conversations on AI, founder mindset, personal branding, and cross-border opportunity.", cta: "Book Ritesh to Speak", href: "/speaking" },
-          { title: "Media & Podcast", text: "Real with Ritesh — a podcast and media platform featuring founders, operators, creators, investors, and experts with traction and stories worth sharing.", cta: "Explore Media", href: "/media" },
-          { title: "Investing", text: "Ritesh invests in founders and businesses where he can add strategic value — through systems, AI, brand, and cross-border insight.", cta: "Reach Out", href: "/contact" },
+          {
+            title: "Work With Ritesh",
+            text: "Strategic consulting for founders and leaders — business direction, positioning, personal brand strategy, and systems that create leverage.",
+            cta: "Work With Ritesh",
+            href: "/contact",
+          },
+          {
+            title: "Speaking",
+            text: "Keynotes, panels, fireside chats, and conversations on AI, founder mindset, personal branding, and cross-border opportunity.",
+            cta: "Book Ritesh to Speak",
+            href: "/speaking",
+          },
+          {
+            title: "Media & Podcast",
+            text: "Real with Ritesh — a podcast and media platform featuring founders, operators, creators, investors, and experts with traction and stories worth sharing.",
+            cta: "Explore Media",
+            href: "/media",
+          },
+          {
+            title: "Investing",
+            text: "Ritesh invests in founders and businesses where he can add strategic value — through systems, AI, brand, and cross-border insight.",
+            cta: "Reach Out",
+            href: "/contact",
+          },
         ].map((item, i) => (
-          <div key={item.title} className={`card-glow bg-[hsl(var(--surface-secondary))] p-10 md:p-12 reveal delay-${i + 1} group`}>
-            <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">{item.title}</h3>
+          <div
+            key={item.title}
+            className={`card-glow bg-[hsl(var(--surface-secondary))] p-10 md:p-12 reveal delay-${i + 1} group`}
+          >
+            <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">
+              {item.title}
+            </h3>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
             <div className="card-reveal-content">
-              <Link to={item.href} className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-gold transition-colors group/link link-underline">
+              <Link
+                to={item.href}
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-gold transition-colors group/link link-underline"
+              >
                 {item.cta}
                 <ArrowRight size={14} className="transition-transform group-hover/link:translate-x-0.5" />
               </Link>
@@ -145,7 +238,10 @@ const Index = () => (
     </Section>
 
     {/* ============ ABOUT PREVIEW — Parallax Background ============ */}
-    <section className="snap-section relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
+    <section
+      className="snap-section relative overflow-hidden"
+      style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}
+    >
       <div className="parallax-bg">
         <img src={bgAbout} alt="" loading="lazy" width={1920} height={1080} className="opacity-20" />
       </div>
@@ -154,37 +250,59 @@ const Index = () => (
         <div className="max-w-3xl mx-auto text-center reveal-scale">
           <p className="section-label">About</p>
           <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Meet Ritesh</h2>
-          <p className="mt-8 font-display text-xl md:text-2xl font-normal leading-relaxed text-foreground/90" style={{ maxWidth: "72ch", margin: "2rem auto 0" }}>
+          <p
+            className="mt-8 font-display text-xl md:text-2xl font-normal leading-relaxed text-foreground/90"
+            style={{ maxWidth: "72ch", margin: "2rem auto 0" }}
+          >
             An Indian-Canadian Author, Entrepreneur, Investor, and Speaker operating at the intersection of{" "}
-            <em className="text-gold not-italic">business growth</em>, AI leverage, cross-border opportunity, and long-term wealth creation.
+            <em className="text-gold not-italic">business growth</em>, AI leverage, cross-border opportunity, and
+            long-term wealth creation.
           </p>
           <Button variant="hero-outline" size="lg" asChild className="mt-10 btn-magnetic">
-            <Link to="/about">Read the Story <ArrowRight size={15} className="ml-1.5" /></Link>
+            <Link to="/about">
+              Read the Story <ArrowRight size={15} className="ml-1.5" />
+            </Link>
           </Button>
         </div>
       </div>
     </section>
 
     {/* ============ SPEAKING PREVIEW — Left-aligned with bleed image ============ */}
-    <section className="relative overflow-hidden bg-[hsl(var(--surface-secondary))]" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "repeating-linear-gradient(135deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)" }} />
+    <section
+      className="relative overflow-hidden bg-[hsl(var(--surface-secondary))]"
+      style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}
+    >
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(135deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)",
+        }}
+      />
       <div className="ambient-glow w-[500px] h-[500px] bg-gold/5 -bottom-40 -right-20" />
       <div className="container relative z-10">
         <div className="max-w-xl reveal-left">
           <p className="section-label">Speaking</p>
           <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Book Ritesh to Speak</h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
-            Ritesh speaks on AI for business, founder mindset and decision-making, personal branding and business systems, and India–Canada cross-border opportunity. His sessions are practical, rooted in real execution, and designed to leave audiences with frameworks they can apply immediately.
+            Ritesh speaks on AI for business, founder mindset and decision-making, personal branding and business
+            systems, and India–Canada cross-border opportunity. His sessions are practical, rooted in real execution,
+            and designed to leave audiences with frameworks they can apply immediately.
           </p>
           <Button variant="hero" size="lg" asChild className="mt-8 btn-magnetic">
-            <Link to="/speaking">View Speaking Topics <ArrowRight size={15} className="ml-1.5" /></Link>
+            <Link to="/speaking">
+              View Speaking Topics <ArrowRight size={15} className="ml-1.5" />
+            </Link>
           </Button>
         </div>
       </div>
     </section>
 
     {/* ============ MEDIA PREVIEW — Center-aligned with floating cards ============ */}
-    <section className="relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
+    <section
+      className="relative overflow-hidden"
+      style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}
+    >
       <div className="parallax-bg parallax-medium">
         <img src={podcastImg} alt="" loading="lazy" width={1920} height={1080} className="opacity-20" />
       </div>
@@ -194,7 +312,8 @@ const Index = () => (
           <p className="section-label">Podcast & Media</p>
           <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Real with Ritesh</h2>
           <p className="mt-6 text-muted-foreground leading-relaxed mx-auto" style={{ maxWidth: "60ch" }}>
-            Conversations, clips, and stories at the intersection of business, opportunity, growth, and modern founder life.
+            Conversations, clips, and stories at the intersection of business, opportunity, growth, and modern founder
+            life.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Button variant="gold" size="lg" asChild className="btn-magnetic">
@@ -213,17 +332,32 @@ const Index = () => (
       <div className="text-center max-w-3xl mx-auto reveal">
         <p className="section-label">Blog</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Read the Blog</h2>
-        <p className="mt-4 text-muted-foreground">Actionable perspectives on building smarter businesses, moving across borders, and growing long-term wealth.</p>
+        <p className="mt-4 text-muted-foreground">
+          Actionable perspectives on building smarter businesses, moving across borders, and growing long-term wealth.
+        </p>
       </div>
       <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {blogPosts.map((post, i) => (
-          <Link key={post.title} to="/blog" className={`group reveal delay-${i + 1} block card-glow rounded-2xl p-0 overflow-hidden`}>
+          <Link
+            key={post.title}
+            to="/blog"
+            className={`group reveal delay-${i + 1} block card-glow rounded-2xl p-0 overflow-hidden`}
+          >
             <div className="blog-card-img aspect-[16/9] overflow-hidden">
-              <img src={post.image} alt={post.title} loading="lazy" width={640} height={360} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <img
+                src={post.image}
+                alt={post.title}
+                loading="lazy"
+                width={640}
+                height={360}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
             </div>
             <div className="p-6">
               <p className="text-xs font-semibold uppercase tracking-widest text-gold">{post.pillar}</p>
-              <h3 className="mt-2 font-display text-lg font-semibold leading-tight group-hover:text-gold transition-colors duration-300">{post.title}</h3>
+              <h3 className="mt-2 font-display text-lg font-semibold leading-tight group-hover:text-gold transition-colors duration-300">
+                {post.title}
+              </h3>
               <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
               <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-gold transition-colors">
                 Read More <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
@@ -234,7 +368,9 @@ const Index = () => (
       </div>
       <div className="mt-10 text-center reveal delay-4">
         <Button variant="hero" size="lg" asChild className="btn-magnetic">
-          <Link to="/blog">Go to the Blog <ArrowRight size={15} className="ml-1.5" /></Link>
+          <Link to="/blog">
+            Go to the Blog <ArrowRight size={15} className="ml-1.5" />
+          </Link>
         </Button>
       </div>
     </Section>
@@ -247,23 +383,49 @@ const Index = () => (
     </Section>
 
     {/* ============ FINAL CONNECTION — Parallax ============ */}
-    <section className="relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
+    <section
+      className="relative overflow-hidden"
+      style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}
+    >
       <div className="parallax-bg parallax-slow">
         <img src={bgAbout} alt="" loading="lazy" width={1920} height={1080} className="opacity-10" />
       </div>
       <div className="absolute inset-0 bg-primary/[0.06]" />
-      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)" }} />
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)",
+        }}
+      />
       <div className="container relative z-10">
         <h2 className="font-display text-h2 font-semibold tracking-tight text-center reveal">Choose Your Next Step</h2>
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { title: "Work With Ritesh", text: "Strategic consulting for founders and leaders.", cta: "Work With Ritesh", href: "/contact" },
-            { title: "Book Ritesh to Speak", text: "Keynotes, panels, and founder conversations.", cta: "Book to Speak", href: "/speaking" },
-            { title: "Explore Media", text: "Real with Ritesh — conversations and clips.", cta: "Explore Media", href: "/media" },
+            {
+              title: "Work With Ritesh",
+              text: "Strategic consulting for founders and leaders.",
+              cta: "Work With Ritesh",
+              href: "/contact",
+            },
+            {
+              title: "Book Ritesh to Speak",
+              text: "Keynotes, panels, and founder conversations.",
+              cta: "Book to Speak",
+              href: "/speaking",
+            },
+            {
+              title: "Explore Media",
+              text: "Real with Ritesh — conversations and clips.",
+              cta: "Explore Media",
+              href: "/media",
+            },
             { title: "Read the Blog", text: "Weekly ideas and frameworks.", cta: "Read the Blog", href: "/blog" },
           ].map((card, i) => (
             <Card3D key={card.title} className={`card-glow rounded-2xl p-8 text-center reveal delay-${i + 1} group`}>
-              <h3 className="font-display text-lg font-semibold group-hover:text-gold transition-colors duration-300">{card.title}</h3>
+              <h3 className="font-display text-lg font-semibold group-hover:text-gold transition-colors duration-300">
+                {card.title}
+              </h3>
               <p className="mt-3 text-sm text-muted-foreground">{card.text}</p>
               <Button variant="hero" size="sm" asChild className="mt-6 btn-magnetic">
                 <Link to={card.href}>{card.cta}</Link>
