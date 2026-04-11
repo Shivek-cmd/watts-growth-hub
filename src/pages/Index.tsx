@@ -104,18 +104,15 @@ const Index = () => (
             { title: "Move", num: "02", text: "Career choices, migration, reverse migration, and cross-border opportunities across India, Canada, and beyond." },
             { title: "Grow", num: "03", text: "Wealth-building through business, real estate, and personal growth for long-term freedom and optionality." },
           ].map((p, i) => (
-            <Card3D key={p.title} className={`reveal delay-${i + 1} scroll-tilt group relative overflow-hidden h-full`}>
-              {/* Large background number */}
-              <div className="absolute -top-6 -right-2 font-display text-[8rem] font-bold leading-none text-foreground/[0.03] group-hover:text-gold/[0.08] transition-colors duration-700 select-none pointer-events-none">
+            <Card3D key={p.title} className={`card-glow rounded-2xl p-8 md:p-10 text-center reveal delay-${i + 1} group`}>
+              <div className="absolute -top-4 -right-2 font-display text-[7rem] font-bold leading-none text-foreground/[0.03] group-hover:text-gold/[0.06] transition-colors duration-700 select-none pointer-events-none">
                 {p.num}
               </div>
-              <div className="relative z-10 h-full p-8 md:p-10 border border-[hsl(var(--border))] bg-[hsl(var(--background))] rounded-[inherit]">
-                <div className="h-px w-12 bg-gold/60 group-hover:w-20 transition-all duration-500 mb-6" />
-                <h3 className="font-display text-3xl font-bold tracking-tight">
-                  <span className="text-gradient-gold">{p.title}</span>
-                </h3>
-                <p className="mt-5 text-muted-foreground leading-relaxed">{p.text}</p>
-              </div>
+              <div className="h-px w-12 bg-gold/60 group-hover:w-20 transition-all duration-500 mb-6 mx-auto" />
+              <h3 className="font-display text-3xl font-bold tracking-tight">
+                <span className="text-gradient-gold">{p.title}</span>
+              </h3>
+              <p className="mt-5 text-muted-foreground leading-relaxed">{p.text}</p>
             </Card3D>
           ))}
         </div>
