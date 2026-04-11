@@ -21,7 +21,7 @@ const blogPosts = [
 const Index = () => (
   <Layout>
     {/* ============ HERO ============ */}
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="snap-section relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Hero image — full bleed on right, blending into background */}
       <div className="hidden lg:block absolute inset-y-0 right-0 w-[55%]" style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}>
         <img src={heroImg} alt="Ritesh Watts — Author, Entrepreneur, Investor, and Speaker" width={960} height={1080} className="w-full h-full object-cover object-top" />
@@ -87,31 +87,39 @@ const Index = () => (
     </section>
 
     {/* ============ BUILD · MOVE · GROW ============ */}
-    <Section>
-      <div className="text-center max-w-3xl mx-auto reveal">
-        <p className="section-label">Three Pillars</p>
-        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Build · Move · Grow</h2>
-        <p className="mt-6 text-muted-foreground leading-relaxed mx-auto" style={{ maxWidth: "72ch" }}>
-          Ritesh's work sits across three connected domains. Whether you are building a smarter business, moving across borders with purpose, or growing long-term wealth — there is a framework, a story, and a system that can help.
-        </p>
-      </div>
-      <div className="mt-16 grid gap-8 md:grid-cols-3">
-        {[
-          { title: "Build", icon: "🏗️", text: "Founder mindset, systems, decisions, and AI leverage to build smarter businesses and stronger positioning." },
-          { title: "Move", icon: "🌍", text: "Career choices, migration, reverse migration, and cross-border opportunities across India, Canada, and beyond." },
-          { title: "Grow", icon: "📈", text: "Wealth-building through business, real estate, and personal growth for long-term freedom and optionality." },
-        ].map((p, i) => (
-          <div key={p.title} className={`reveal delay-${i + 1} group relative p-8 md:p-10 rounded-2xl bg-[hsl(var(--surface-secondary))] border border-[hsl(var(--border))] hover:border-gold/30 transition-all duration-500 hover:-translate-y-1`}>
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative z-10">
-              <span className="text-3xl">{p.icon}</span>
-              <h3 className="mt-4 font-display text-2xl font-semibold text-gradient-gold">{p.title}</h3>
-              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{p.text}</p>
+    <section className="snap-section relative overflow-hidden bg-[hsl(var(--surface-secondary))]" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)" }} />
+      <div className="container relative z-10">
+        <div className="text-center max-w-3xl mx-auto reveal">
+          <p className="section-label">Three Pillars</p>
+          <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Build · Move · Grow</h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed mx-auto" style={{ maxWidth: "72ch" }}>
+            Ritesh's work sits across three connected domains. Whether you are building a smarter business, moving across borders with purpose, or growing long-term wealth — there is a framework, a story, and a system that can help.
+          </p>
+        </div>
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
+          {[
+            { title: "Build", num: "01", text: "Founder mindset, systems, decisions, and AI leverage to build smarter businesses and stronger positioning." },
+            { title: "Move", num: "02", text: "Career choices, migration, reverse migration, and cross-border opportunities across India, Canada, and beyond." },
+            { title: "Grow", num: "03", text: "Wealth-building through business, real estate, and personal growth for long-term freedom and optionality." },
+          ].map((p, i) => (
+            <div key={p.title} className={`reveal delay-${i + 1} group relative overflow-hidden`}>
+              {/* Large background number */}
+              <div className="absolute -top-6 -right-2 font-display text-[8rem] font-bold leading-none text-foreground/[0.03] group-hover:text-gold/[0.08] transition-colors duration-700 select-none pointer-events-none">
+                {p.num}
+              </div>
+              <div className="relative z-10 p-8 md:p-10 rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] hover:border-gold/40 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_20px_60px_-20px_rgba(199,165,93,0.15)]">
+                <div className="h-px w-12 bg-gold/60 group-hover:w-20 transition-all duration-500 mb-6" />
+                <h3 className="font-display text-3xl font-bold tracking-tight">
+                  <span className="text-gradient-gold">{p.title}</span>
+                </h3>
+                <p className="mt-5 text-muted-foreground leading-relaxed">{p.text}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
 
     {/* ============ WHAT RITESH DOES ============ */}
     <Section className="bg-[hsl(var(--surface-secondary))]">
@@ -140,7 +148,7 @@ const Index = () => (
     </Section>
 
     {/* ============ ABOUT PREVIEW — Parallax Background ============ */}
-    <section className="relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
+    <section className="snap-section relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
       <div className="parallax-bg">
         <img src={bgAbout} alt="" loading="lazy" width={1920} height={1080} className="opacity-20" />
       </div>
