@@ -168,17 +168,18 @@ const Index = () => (
       </div>
     </section>
 
-    {/* ============ SPEAKING PREVIEW — Parallax ============ */}
+    {/* ============ SPEAKING PREVIEW — Left-aligned with bleed image ============ */}
     <section className="relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
-      <div className="parallax-bg parallax-slow">
-        <img src={speakingImg} alt="" loading="lazy" width={1920} height={1080} className="opacity-15" />
+      <div className="hidden md:block absolute inset-y-0 right-0 w-[45%]">
+        <img src={speakingImg} alt="" loading="lazy" width={1920} height={1080} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-[hsl(var(--background)/0.4)] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-[hsl(var(--background)/0.3)]" />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-[hsl(var(--background)/0.8)] to-[hsl(var(--background))]" />
       <div className="container relative z-10">
-        <div className="max-w-3xl mx-auto text-center reveal">
+        <div className="max-w-xl reveal-left">
           <p className="section-label">Speaking</p>
           <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Book Ritesh to Speak</h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed mx-auto" style={{ maxWidth: "72ch" }}>
+          <p className="mt-6 text-muted-foreground leading-relaxed">
             Ritesh speaks on AI for business, founder mindset and decision-making, personal branding and business systems, and India–Canada cross-border opportunity. His sessions are practical, rooted in real execution, and designed to leave audiences with frameworks they can apply immediately.
           </p>
           <Button variant="hero" size="lg" asChild className="mt-8 btn-magnetic">
@@ -188,26 +189,31 @@ const Index = () => (
       </div>
     </section>
 
-    {/* ============ MEDIA PREVIEW — Parallax ============ */}
-    <section className="relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
-      <div className="parallax-bg parallax-medium">
-        <img src={podcastImg} alt="" loading="lazy" width={1920} height={1080} className="opacity-15" />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-[hsl(var(--background)/0.8)] to-[hsl(var(--background))]" />
+    {/* ============ MEDIA PREVIEW — Contrast section ============ */}
+    <section className="relative overflow-hidden bg-[hsl(var(--surface-secondary))]" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
+      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)" }} />
       <div className="container relative z-10">
-        <div className="max-w-3xl mx-auto text-center reveal">
-          <p className="section-label">Podcast & Media</p>
-          <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Real with Ritesh</h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Conversations, clips, and stories at the intersection of business, opportunity, growth, and modern founder life.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button variant="hero" size="lg" asChild className="btn-magnetic">
-              <Link to="/media">Watch / Listen</Link>
-            </Button>
-            <Button variant="hero-outline" size="lg" asChild className="btn-magnetic">
-              <Link to="/media/invite">Invite Ritesh to Your Podcast</Link>
-            </Button>
+        <div className="grid gap-12 md:grid-cols-2 items-center">
+          <div className="reveal-left">
+            <p className="section-label">Podcast & Media</p>
+            <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Real with Ritesh</h2>
+            <p className="mt-6 text-muted-foreground leading-relaxed">
+              Conversations, clips, and stories at the intersection of business, opportunity, growth, and modern founder life.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button variant="hero" size="lg" asChild className="btn-magnetic">
+                <Link to="/media">Watch / Listen</Link>
+              </Button>
+              <Button variant="hero-outline" size="lg" asChild className="btn-magnetic">
+                <Link to="/media/invite">Invite Ritesh</Link>
+              </Button>
+            </div>
+          </div>
+          <div className="reveal-right delay-2">
+            <div className="relative rounded-2xl overflow-hidden aspect-video">
+              <img src={podcastImg} alt="Real with Ritesh podcast" loading="lazy" width={640} height={360} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background)/0.5)] to-transparent" />
+            </div>
           </div>
         </div>
       </div>
