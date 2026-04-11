@@ -5,10 +5,10 @@ import { Award, ExternalLink, ArrowRight } from "lucide-react";
 import bgAbout from "@/assets/bg-about.jpg";
 
 const companies = [
-  { title: "Watts Group", text: "A broader business platform supporting growth, strategic development, and long-term opportunity creation across consulting, technology, marketing, jobs, and training." },
-  { title: "Watts Immigration", text: "A licensed immigration-focused offering built around trusted guidance, professional RCIC expertise, and practical client outcomes." },
-  { title: "Aifyze", text: "An AI-driven growth and leverage platform focused on helping businesses move faster and work smarter through automation and modern digital execution." },
-  { title: "Watts Technologies", text: "A specialized AI division focused on enabling practical AI adoption and deployment across industries including healthcare, finance, manufacturing, and education." },
+  { title: "Watts Group", text: "A broader business platform supporting growth, strategic development, and long-term opportunity creation across consulting, technology, marketing, jobs, and training.", url: "https://wattsgroup.in/" },
+  { title: "Watts Immigration", text: "A licensed immigration-focused offering built around trusted guidance, professional RCIC expertise, and practical client outcomes.", url: "http://consult.wattsimmigration.com/" },
+  { title: "Aifyze", text: "An AI-driven growth and leverage platform focused on helping businesses move faster and work smarter through automation and modern digital execution.", url: "http://aifyze.com/" },
+  { title: "Watts Technologies", text: "A specialized AI division focused on enabling practical AI adoption and deployment across industries including healthcare, finance, manufacturing, and education.", url: "https://wattstechnologies.in/" },
 ];
 
 const achievements = [
@@ -56,16 +56,13 @@ const BrandsVentures = () => (
       <div className="mt-16 grid gap-6 md:grid-cols-2">
         {companies.map((c, i) => (
           <Card3D key={c.title} className={`card-glow rounded-2xl p-8 md:p-10 reveal delay-${Math.min(i + 1, 5)} group`}>
-            <div className="absolute -top-4 -right-2 font-display text-[6rem] font-bold leading-none text-foreground/[0.03] group-hover:text-gold/[0.06] transition-colors duration-700 select-none pointer-events-none">
-              0{i + 1}
-            </div>
             <div className="relative z-10">
               <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">{c.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.text}</p>
               <div className="card-reveal-content">
-                <button className="mt-4 text-sm font-medium text-foreground hover:text-gold transition-colors flex items-center gap-1.5 group/link link-underline">
+                <a href={c.url} target="_blank" rel="noopener noreferrer" className="mt-4 text-sm font-medium text-foreground hover:text-gold transition-colors flex items-center gap-1.5 group/link link-underline">
                   Visit {c.title} <ExternalLink size={13} className="transition-transform group-hover/link:translate-x-0.5" />
-                </button>
+                </a>
               </div>
             </div>
           </Card3D>
