@@ -3,6 +3,7 @@ import Section from "@/components/SectionWrapper";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Play } from "lucide-react";
+import podcastImg from "@/assets/media-podcast.jpg";
 
 const topicsCovered = [
   "Entrepreneurship and Founder Lessons",
@@ -15,12 +16,17 @@ const topicsCovered = [
 
 const Media = () => (
   <Layout>
+    {/* Hero with parallax */}
     <section className="relative flex items-end min-h-[50vh] overflow-hidden">
+      <div className="parallax-bg">
+        <img src={podcastImg} alt="" width={1920} height={1080} className="opacity-25" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-[hsl(var(--background)/0.6)] to-[hsl(var(--background)/0.3)]" />
       <div className="ambient-glow w-[500px] h-[500px] bg-gold/5 -top-20 -right-20" />
       <div className="container relative z-10 pb-16">
         <p className="section-label reveal">Podcast & Media</p>
         <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
-          Media & <span className="text-gradient-gold">Podcast</span>
+          Media & <span className="text-shimmer">Podcast</span>
         </h1>
         <p className="mt-4 text-gold text-sm font-medium reveal delay-2">Real with Ritesh — conversations, clips, and stories for ambitious builders.</p>
         <p className="mt-4 text-muted-foreground max-w-2xl leading-relaxed reveal delay-3">
@@ -30,7 +36,7 @@ const Media = () => (
     </section>
 
     <Section>
-      <div className="max-w-3xl reveal">
+      <div className="max-w-3xl reveal-left">
         <p className="section-label">About the Show</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">About Real with Ritesh</h2>
         <p className="mt-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
@@ -43,9 +49,9 @@ const Media = () => (
       <div className="max-w-2xl reveal">
         <p className="section-label">Topics</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Topics Covered</h2>
-        <ul className="mt-10 space-y-4">
-          {topicsCovered.map((t, i) => (
-            <li key={t} className={`flex items-center gap-4 text-muted-foreground reveal delay-${Math.min(i + 1, 5)}`}>
+        <ul className="mt-10 space-y-4 stagger-list reveal">
+          {topicsCovered.map((t) => (
+            <li key={t} className="flex items-center gap-4 text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
               {t}
             </li>
@@ -60,18 +66,18 @@ const Media = () => (
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Two Ways to Connect</h2>
       </div>
       <div className="mt-16 grid gap-px bg-[hsl(var(--border))] md:grid-cols-2 rounded-lg overflow-hidden">
-        <div className="bg-background p-10 md:p-12 reveal delay-1">
-          <h3 className="font-display text-xl font-semibold">Invite Ritesh to Your Podcast</h3>
+        <div className="bg-background p-10 md:p-12 reveal-left delay-1 group card-hover">
+          <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">Invite Ritesh to Your Podcast</h3>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">If Ritesh is a fit for your show, audience, or media platform, submit an invitation with the format, topic, and audience details.</p>
-          <Link to="/media/invite" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-gold transition-colors group">
-            Invite Ritesh <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+          <Link to="/media/invite" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-gold transition-colors group/link link-underline">
+            Invite Ritesh <ArrowRight size={14} className="transition-transform group-hover/link:translate-x-0.5" />
           </Link>
         </div>
-        <div className="bg-background p-10 md:p-12 reveal delay-2">
-          <h3 className="font-display text-xl font-semibold">Apply to Be a Guest</h3>
+        <div className="bg-background p-10 md:p-12 reveal-right delay-2 group card-hover">
+          <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">Apply to Be a Guest</h3>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">Founders, creators, operators, investors, and experts with valuable stories and practical insight are welcome to apply.</p>
-          <Link to="/media/apply" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-gold transition-colors group">
-            Apply as Guest <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+          <Link to="/media/apply" className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-gold transition-colors group/link link-underline">
+            Apply as Guest <ArrowRight size={14} className="transition-transform group-hover/link:translate-x-0.5" />
           </Link>
         </div>
       </div>
@@ -85,9 +91,9 @@ const Media = () => (
       </div>
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {[1, 2, 3].map((i) => (
-          <div key={i} className={`rounded-lg overflow-hidden border border-[hsl(var(--border))] reveal delay-${i}`}>
-            <div className="aspect-video bg-[hsl(var(--surface-tertiary))] flex items-center justify-center">
-              <Play size={36} className="text-muted-foreground/20" />
+          <div key={i} className={`rounded-lg overflow-hidden border border-[hsl(var(--border))] reveal-scale delay-${i} card-hover gradient-border`}>
+            <div className="aspect-video bg-[hsl(var(--surface-tertiary))] flex items-center justify-center relative group cursor-pointer">
+              <Play size={36} className="text-muted-foreground/20 group-hover:text-gold/40 transition-colors duration-300 group-hover:scale-110 transition-transform" />
             </div>
             <div className="p-6">
               <h3 className="font-display font-semibold">Episode Coming Soon</h3>
