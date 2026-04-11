@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import Section from "@/components/SectionWrapper";
 import NewsletterBlock from "@/components/NewsletterBlock";
+import Card3D from "@/components/Card3D";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -103,19 +104,19 @@ const Index = () => (
             { title: "Move", num: "02", text: "Career choices, migration, reverse migration, and cross-border opportunities across India, Canada, and beyond." },
             { title: "Grow", num: "03", text: "Wealth-building through business, real estate, and personal growth for long-term freedom and optionality." },
           ].map((p, i) => (
-            <div key={p.title} className={`reveal delay-${i + 1} group relative overflow-hidden`}>
+            <Card3D key={p.title} className={`reveal delay-${i + 1} scroll-tilt group relative overflow-hidden h-full`}>
               {/* Large background number */}
               <div className="absolute -top-6 -right-2 font-display text-[8rem] font-bold leading-none text-foreground/[0.03] group-hover:text-gold/[0.08] transition-colors duration-700 select-none pointer-events-none">
                 {p.num}
               </div>
-              <div className="relative z-10 h-full p-8 md:p-10 rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] hover:border-gold/40 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_20px_60px_-20px_rgba(199,165,93,0.15)]">
+              <div className="relative z-10 h-full p-8 md:p-10 border border-[hsl(var(--border))] bg-[hsl(var(--background))] rounded-[inherit]">
                 <div className="h-px w-12 bg-gold/60 group-hover:w-20 transition-all duration-500 mb-6" />
                 <h3 className="font-display text-3xl font-bold tracking-tight">
                   <span className="text-gradient-gold">{p.title}</span>
                 </h3>
                 <p className="mt-5 text-muted-foreground leading-relaxed">{p.text}</p>
               </div>
-            </div>
+            </Card3D>
           ))}
         </div>
       </div>
@@ -135,13 +136,15 @@ const Index = () => (
           { title: "Media & Podcast", text: "Real with Ritesh — a podcast and media platform featuring founders, operators, creators, investors, and experts with traction and stories worth sharing.", cta: "Explore Media", href: "/media" },
           { title: "Investing", text: "Ritesh invests in founders and businesses where he can add strategic value — through systems, AI, brand, and cross-border insight.", cta: "Reach Out", href: "/contact" },
         ].map((item, i) => (
-          <div key={item.title} className={`bg-[hsl(var(--surface-secondary))] p-10 md:p-12 reveal delay-${i + 1} group`}>
+          <div key={item.title} className={`card-glow bg-[hsl(var(--surface-secondary))] p-10 md:p-12 reveal delay-${i + 1} group`}>
             <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">{item.title}</h3>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-            <Link to={item.href} className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-gold transition-colors group/link link-underline">
-              {item.cta}
-              <ArrowRight size={14} className="transition-transform group-hover/link:translate-x-0.5" />
-            </Link>
+            <div className="card-reveal-content">
+              <Link to={item.href} className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-gold transition-colors group/link link-underline">
+                {item.cta}
+                <ArrowRight size={14} className="transition-transform group-hover/link:translate-x-0.5" />
+              </Link>
+            </div>
           </div>
         ))}
       </div>
@@ -228,16 +231,18 @@ const Index = () => (
       </div>
       <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {blogPosts.map((post, i) => (
-          <Link key={post.title} to="/blog" className={`group reveal delay-${i + 1} block`}>
-            <div className="blog-card-img aspect-[16/9]">
-              <img src={post.image} alt={post.title} loading="lazy" width={640} height={360} className="w-full h-full object-cover" />
+          <Link key={post.title} to="/blog" className={`group reveal delay-${i + 1} block card-glow p-0 overflow-hidden`}>
+            <div className="blog-card-img aspect-[16/9] overflow-hidden">
+              <img src={post.image} alt={post.title} loading="lazy" width={640} height={360} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
-            <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-gold">{post.pillar}</p>
-            <h3 className="mt-2 font-display text-lg font-semibold leading-tight group-hover:text-gold transition-colors duration-300">{post.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
-            <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-gold transition-colors">
-              Read More <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
-            </span>
+            <div className="p-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-gold">{post.pillar}</p>
+              <h3 className="mt-2 font-display text-lg font-semibold leading-tight group-hover:text-gold transition-colors duration-300">{post.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-gold transition-colors">
+                Read More <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </div>
           </Link>
         ))}
       </div>
@@ -264,20 +269,20 @@ const Index = () => (
       <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)" }} />
       <div className="container relative z-10">
         <h2 className="font-display text-h2 font-semibold tracking-tight text-center reveal">Choose Your Next Step</h2>
-        <div className="mt-16 grid gap-px bg-[hsl(var(--border))] sm:grid-cols-2 lg:grid-cols-4 rounded-lg overflow-hidden">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { title: "Work With Ritesh", text: "Strategic consulting for founders and leaders.", cta: "Work With Ritesh", href: "/contact" },
             { title: "Book Ritesh to Speak", text: "Keynotes, panels, and founder conversations.", cta: "Book to Speak", href: "/speaking" },
             { title: "Explore Media", text: "Real with Ritesh — conversations and clips.", cta: "Explore Media", href: "/media" },
             { title: "Read the Blog", text: "Weekly ideas and frameworks.", cta: "Read the Blog", href: "/blog" },
           ].map((card, i) => (
-            <div key={card.title} className={`bg-background p-8 text-center reveal delay-${i + 1} group`}>
+            <Card3D key={card.title} className={`card-glow p-8 text-center reveal delay-${i + 1} group`}>
               <h3 className="font-display text-lg font-semibold group-hover:text-gold transition-colors duration-300">{card.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{card.text}</p>
               <Button variant="hero" size="sm" asChild className="mt-6 btn-magnetic">
                 <Link to={card.href}>{card.cta}</Link>
               </Button>
-            </div>
+            </Card3D>
           ))}
         </div>
       </div>

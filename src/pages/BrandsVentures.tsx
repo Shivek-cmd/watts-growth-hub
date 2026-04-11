@@ -51,14 +51,16 @@ const BrandsVentures = () => (
         <p className="section-label">Companies</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Companies Ritesh Owns</h2>
       </div>
-      <div className="mt-16 border-t border-[hsl(var(--border))]">
+      <div className="mt-16 grid gap-6 md:grid-cols-2">
         {companies.map((c, i) => (
-          <div key={c.title} className={`border-b border-[hsl(var(--border))] py-10 md:py-12 reveal delay-${Math.min(i + 1, 5)} group`}>
+          <div key={c.title} className={`card-glow p-8 md:p-10 reveal delay-${Math.min(i + 1, 5)} group`}>
             <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">{c.title}</h3>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xl">{c.text}</p>
-            <button className="mt-4 text-sm font-medium text-foreground hover:text-gold transition-colors flex items-center gap-1.5 group/link link-underline">
-              Visit {c.title} <ExternalLink size={13} className="transition-transform group-hover/link:translate-x-0.5" />
-            </button>
+            <div className="card-reveal-content">
+              <button className="mt-4 text-sm font-medium text-foreground hover:text-gold transition-colors flex items-center gap-1.5 group/link link-underline">
+                Visit {c.title} <ExternalLink size={13} className="transition-transform group-hover/link:translate-x-0.5" />
+              </button>
+            </div>
           </div>
         ))}
       </div>
