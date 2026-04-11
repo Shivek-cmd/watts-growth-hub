@@ -37,7 +37,7 @@ const BrandsVentures = () => (
       <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-[hsl(var(--background)/0.7)] to-transparent" />
       <div className="ambient-glow w-[500px] h-[500px] bg-gold/5 -top-20 -left-20" />
       <div className="container relative z-10 pb-16">
-        <p className="section-label reveal">Portfolio</p>
+        <p className="section-label reveal mt-6 sm:mt-0">Portfolio</p>
         <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
           Brands & <span className="text-shimmer">Ventures</span>
         </h1>

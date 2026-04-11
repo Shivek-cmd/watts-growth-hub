@@ -25,7 +25,7 @@ const Media = () => (
       <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-[hsl(var(--background)/0.6)] to-[hsl(var(--background)/0.3)]" />
       <div className="ambient-glow w-[500px] h-[500px] bg-gold/5 -top-20 -right-20" />
       <div className="container relative z-10 pb-16">
-        <p className="section-label reveal">Podcast & Media</p>
+        <p className="section-label reveal mt-6 sm:mt-0">Podcast & Media</p>
         <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
           Media & <span className="text-shimmer">Podcast</span>
         </h1>

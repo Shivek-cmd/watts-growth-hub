@@ -82,49 +82,57 @@ const Index = () => (
 
       <div className="container relative z-10">
         <div className="max-w-2xl">
-          <p className="section-label reveal">
-            Author <span className="dot-blink">·</span> Entrepreneur <span className="dot-blink">·</span> Investor{" "}
-            <span className="dot-blink">·</span> Speaker
-          </p>
-          <h1 className="mt-6 font-display text-hero font-bold tracking-tight leading-[1.05] reveal delay-1">
-            Ritesh <span className="text-shimmer">Watts</span>
-          </h1>
-          <p
-            className="mt-8 text-lg leading-relaxed text-muted-foreground max-w-2xl reveal delay-2"
-            style={{ maxWidth: "72ch" }}
-          >
-            Helping ambitious people build smarter businesses, move across borders strategically, and grow long-term
-            wealth.
-          </p>
-          <p className="mt-4 text-sm text-muted-foreground/70 max-w-xl reveal delay-3">
-            Through business, AI, migration insight, media, and founder-led thinking — practical ideas, real stories,
-            and strategic frameworks for people who grow with intention.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4 reveal delay-4">
-            <Button variant="hero" size="lg" asChild className="btn-magnetic">
-              <Link to="/speaking">Book Ritesh to Speak</Link>
-            </Button>
-            <Button variant="hero-outline" size="lg" asChild className="btn-magnetic">
-              <Link to="/contact">Work With Ritesh</Link>
-            </Button>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-6 reveal delay-5">
-            {[
-              { label: "Explore Media", href: "/media" },
-              { label: "Read the Blog", href: "/blog" },
-              { label: "Subscribe to Newsletter", href: "/#newsletter" },
-            ].map((link) => (
-              <Link
-                key={link.label}
-                to={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 group link-underline"
-              >
-                {link.label}
-                <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            ))}
-          </div>
+        <p className="section-label reveal mt-6 inline-flex items-center gap-2 rounded-full border border-gold/50 bg-[hsl(var(--background)/0.78)] px-4 py-2 sm:mt-0 tracking-wide">
+          <span>Author</span>
+          <span className="dot-blink opacity-60">·</span>
+          <span>Entrepreneur</span>
+          <span className="dot-blink opacity-60">·</span>
+          <span>Investor</span>
+          <span className="dot-blink opacity-60">·</span>
+          <span>Speaker</span>
+        </p>
+
+        <h1 className="mt-6 font-display text-hero font-bold tracking-tight leading-[1.05] reveal delay-1">
+          Ritesh <span className="text-shimmer">Watts</span>
+        </h1>
+
+        <p
+          className="mt-8 text-lg leading-relaxed text-muted-foreground max-w-2xl reveal delay-2"
+          style={{ maxWidth: "72ch" }}
+        >
+          Helping ambitious people build smarter businesses, move across borders strategically, and grow long-term wealth.
+        </p>
+
+        <p className="mt-4 text-sm text-muted-foreground/70 max-w-xl reveal delay-3">
+          Through business, AI, migration insight, media, and founder-led thinking — practical ideas, real stories, and strategic frameworks for people who grow with intention.
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center gap-4 reveal delay-4">
+          <Button variant="hero" size="lg" asChild className="btn-magnetic">
+            <Link to="/speaking">Book Ritesh to Speak</Link>
+          </Button>
+          <Button variant="hero-outline" size="lg" asChild className="btn-magnetic">
+            <Link to="/contact">Work With Ritesh</Link>
+          </Button>
         </div>
+
+        <div className="mt-8 flex flex-wrap gap-6 reveal delay-5">
+          {[
+            { label: "Explore Media", href: "/media" },
+            { label: "Read the Blog", href: "/blog" },
+            { label: "Subscribe to Newsletter", href: "/#newsletter" },
+          ].map((link) => (
+            <Link
+              key={link.label}
+              to={link.href}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 group link-underline"
+            >
+              {link.label}
+              <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          ))}
+        </div>
+</div>
       </div>
     </section>
 

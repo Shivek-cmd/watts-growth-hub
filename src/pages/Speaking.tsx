@@ -50,7 +50,7 @@ const Speaking = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-[hsl(var(--background)/0.6)] to-[hsl(var(--background)/0.3)]" />
         <div className="ambient-glow w-[500px] h-[500px] bg-primary/10 -top-20 -right-20" />
         <div className="container relative z-10 pb-16">
-          <p className="section-label reveal">Speaking</p>
+          <p className="section-label reveal mt-6 sm:mt-0">Speaking</p>
           <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
             Book Ritesh Watts to <span className="text-shimmer">Speak</span>
           </h1>

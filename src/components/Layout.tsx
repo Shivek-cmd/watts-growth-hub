@@ -10,11 +10,13 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const scrollContainer = document.getElementById("app-scroll-container");
+    scrollContainer?.scrollTo({ top: 0, behavior: "auto" });
+    window.scrollTo({ top: 0, behavior: "auto" });
   }, [pathname]);
 
   return (
-    <div className="grain min-h-screen flex flex-col page-transition scroll-snap-container" key={pathname}>
+    <div id="app-scroll-container" className="grain min-h-screen flex flex-col page-transition scroll-snap-container" key={pathname}>
       <Header />
       <main className="flex-1 pt-20">{children}</main>
       <Footer />

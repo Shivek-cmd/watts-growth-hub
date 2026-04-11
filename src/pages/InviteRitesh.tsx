@@ -22,7 +22,7 @@ const InviteRitesh = () => {
     <Layout>
       <section className="relative flex items-end min-h-[40vh] overflow-hidden">
         <div className="container relative z-10 pb-16">
-          <p className="section-label reveal">Media</p>
+          <p className="section-label reveal mt-6 sm:mt-0">Media</p>
           <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
             Invite Ritesh to Your <span className="text-gradient-gold">Podcast</span>
           </h1>

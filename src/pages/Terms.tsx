@@ -5,7 +5,7 @@ const Terms = () => (
   <Layout>
     <section className="relative overflow-hidden" style={{ paddingTop: "calc(var(--section-py) + 2rem)", paddingBottom: "var(--section-py)" }}>
       <div className="container relative z-10">
-        <p className="section-label reveal">Legal</p>
+        <p className="section-label reveal mt-6 sm:mt-0">Legal</p>
         <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">Terms of Service</h1>
         <p className="mt-4 text-sm text-muted-foreground reveal delay-2">Last updated: April 11, 2026</p>
       </div>

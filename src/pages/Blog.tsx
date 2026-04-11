@@ -29,7 +29,7 @@ const Blog = () => {
       <section className="relative flex items-end min-h-[40vh] overflow-hidden">
         <div className="ambient-glow w-[400px] h-[400px] bg-gold/5 -top-20 -right-20" />
         <div className="container relative z-10 pb-16">
-          <p className="section-label reveal">Blog</p>
+          <p className="section-label reveal mt-6 sm:mt-0">Blog</p>
           <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
             <span className="text-gradient-gold">Blog</span>
           </h1>

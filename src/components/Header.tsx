@@ -17,6 +17,12 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  const scrollToTop = () => {
+    const scrollContainer = document.getElementById("app-scroll-container");
+    scrollContainer?.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -27,16 +33,42 @@ const Header = () => {
     setMobileOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    const scrollContainer = document.getElementById("app-scroll-container");
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    document.documentElement.style.overflow = mobileOpen ? "hidden" : "";
+
+    if (scrollContainer) {
+      scrollContainer.style.overflowY = mobileOpen ? "hidden" : "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+
+      if (scrollContainer) {
+        scrollContainer.style.overflowY = "auto";
+      }
+    };
+  }, [mobileOpen]);
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-[hsl(var(--border))] bg-[hsl(0_0%_4%/0.85)] backdrop-blur-xl"
+      className={`fixed top-0 left-0 right-0 z-[80] transition-all duration-300 ${
+        scrolled || mobileOpen
+          ? "border-b border-[hsl(var(--border))] bg-[hsl(0_0%_4%/0.95)] backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
       <div className="container flex h-20 items-center justify-between">
-        <Link to="/" className="font-display text-2xl font-semibold tracking-tight typewriter-reveal">
+        <Link
+          to="/"
+          onClick={() => {
+            setMobileOpen(false);
+            scrollToTop();
+          }}
+          className="font-display text-2xl font-semibold tracking-tight typewriter-reveal"
+        >
           Ritesh <span className="text-gradient-gold">Watts</span>
         </Link>
 
@@ -73,8 +105,8 @@ const Header = () => {
 
       {/* Mobile overlay */}
       {mobileOpen && (
-        <div className="fixed inset-0 top-20 z-40 bg-[hsl(0_0%_4%/0.97)] backdrop-blur-xl lg:hidden">
-          <nav className="container flex flex-col gap-1 py-8">
+        <div className="absolute left-0 right-0 top-full z-[90] h-[calc(100vh-5rem)] border-t border-[hsl(var(--border))] bg-[#050505] shadow-2xl lg:hidden">
+          <nav className="container flex h-full flex-col gap-2 overflow-y-auto py-6">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -83,7 +115,7 @@ const Header = () => {
                 className={`py-3 text-lg font-medium transition-colors ${
                   location.pathname === item.href
                     ? "text-foreground"
-                    : "text-muted-foreground"
+                    : "text-foreground/88 hover:text-foreground"
                 }`}
               >
                 {item.label}

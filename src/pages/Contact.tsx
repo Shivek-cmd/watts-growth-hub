@@ -31,7 +31,7 @@ const Contact = () => {
       <section className="relative flex items-end min-h-[50vh] overflow-hidden">
         <div className="ambient-glow w-[400px] h-[400px] bg-primary/10 -top-20 -right-20" />
         <div className="container relative z-10 pb-16">
-          <p className="section-label reveal">Contact</p>
+          <p className="section-label reveal mt-6 sm:mt-0">Contact</p>
           <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
             Contact Ritesh <span className="text-shimmer">Watts</span>
           </h1>

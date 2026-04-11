@@ -41,7 +41,7 @@ const About = () => (
       <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-[hsl(var(--background)/0.7)] to-transparent" />
       <div className="ambient-glow w-[500px] h-[500px] bg-primary/10 -top-20 -right-20" />
       <div className="container relative z-10 pb-16">
-        <p className="section-label reveal">About</p>
+        <p className="section-label reveal mt-6 sm:mt-0">About</p>
         <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
           About Ritesh <span className="text-shimmer">Watts</span>
         </h1>
@@ -56,8 +56,8 @@ const About = () => (
     <section className="relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
       {/* Full-bleed image on the right */}
       <div className="hidden lg:block absolute inset-y-0 right-0 w-[40%]" style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}>
-        <img src={riteshCollage} alt="Ritesh Watts — speaking, events, book launch, and community impact" width={840} height={560} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-[hsl(var(--background)/0.35)] to-transparent" />
+        <img src={riteshCollage} alt="Ritesh Watts — speaking, events, book launch, and community impact" className="w-full h-full object-contain" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-[hsl(var(--background)/0.05)] to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-40" />
       </div>
       <div className="container relative z-10">
