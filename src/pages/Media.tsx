@@ -1,8 +1,9 @@
 import Layout from "@/components/Layout";
 import Section from "@/components/SectionWrapper";
+import Card3D from "@/components/Card3D";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Mic, Brain, Globe, Palette, Building2, Target } from "lucide-react";
 import podcastImg from "@/assets/media-podcast.jpg";
 
 const topicsCovered = [
@@ -36,27 +37,64 @@ const Media = () => (
     </section>
 
     <Section>
-      <div className="max-w-3xl reveal-left">
-        <p className="section-label">About the Show</p>
-        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">About Real with Ritesh</h2>
-        <p className="mt-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
-          Designed to surface practical ideas, real stories, and useful insights that help ambitious people think better and grow better. Topics include founder mindset, AI for business, immigration and cross-border opportunity, wealth-building, and personal growth.
-        </p>
+      <div className="grid md:grid-cols-[1fr_1.2fr] gap-16 items-center">
+        <div className="reveal-left">
+          <p className="section-label">About the Show</p>
+          <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">About Real with Ritesh</h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed">
+            Designed to surface practical ideas, real stories, and useful insights that help ambitious people think better and grow better.
+          </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Topics include founder mindset, AI for business, immigration and cross-border opportunity, wealth-building, and personal growth.
+          </p>
+        </div>
+        <div className="reveal-right">
+          <Card3D className="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--surface-secondary))] p-10 md:p-12">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="h-12 w-12 rounded-full bg-gold/10 flex items-center justify-center">
+                <Mic size={22} className="text-gold" />
+              </div>
+              <div>
+                <p className="font-display font-semibold text-lg">Real with Ritesh</p>
+                <p className="text-xs text-muted-foreground">Podcast · Conversations · Clips</p>
+              </div>
+            </div>
+            <div className="space-y-4">
+              {["Practical over inspirational", "Stories from real operators", "Ideas worth sharing"].map((item) => (
+                <div key={item} className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <span className="h-5 w-5 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
+                    <ArrowRight size={10} className="text-gold" />
+                  </span>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </Card3D>
+        </div>
       </div>
     </Section>
 
     <Section className="bg-[hsl(var(--surface-secondary))]">
-      <div className="max-w-2xl reveal">
+      <div className="text-center max-w-2xl mx-auto reveal">
         <p className="section-label">Topics</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Topics Covered</h2>
-        <ul className="mt-10 space-y-4 stagger-list reveal">
-          {topicsCovered.map((t) => (
-            <li key={t} className="flex items-center gap-4 text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
-              {t}
-            </li>
-          ))}
-        </ul>
+      </div>
+      <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-list reveal">
+        {[
+          { icon: Target, label: "Entrepreneurship and Founder Lessons" },
+          { icon: Brain, label: "AI and Digital Leverage for Business" },
+          { icon: Globe, label: "Immigration and Global Mobility" },
+          { icon: Palette, label: "Content, Influence, and Personal Branding" },
+          { icon: Building2, label: "Real Estate and Wealth-Building" },
+          { icon: Mic, label: "Mindset, Decision-Making, and Long-Term Vision" },
+        ].map(({ icon: Icon, label }) => (
+          <Card3D key={label} className="rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] p-8 group">
+            <div className="h-11 w-11 rounded-xl bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors duration-300">
+              <Icon size={20} className="text-gold" />
+            </div>
+            <p className="font-display font-medium text-sm leading-relaxed group-hover:text-gold transition-colors duration-300">{label}</p>
+          </Card3D>
+        ))}
       </div>
     </Section>
 
