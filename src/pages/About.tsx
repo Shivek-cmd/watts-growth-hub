@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import Section from "@/components/SectionWrapper";
+import Card3D from "@/components/Card3D";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -118,25 +119,21 @@ const About = () => (
       </div>
     </Section>
 
-    {/* Values */}
+    {/* Values + CTA */}
     <Section>
-      <div className="max-w-3xl mx-auto text-center reveal">
+      <div className="text-center max-w-3xl mx-auto reveal">
         <p className="section-label">Values</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Personal Values</h2>
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-left">
-          {values.map((v, i) => (
-            <div key={v.title} className={`reveal delay-${Math.min(i + 1, 5)}`}>
-              <h3 className="font-display text-lg font-semibold text-gold">{v.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{v.text}</p>
-            </div>
-          ))}
-        </div>
       </div>
-    </Section>
-
-    {/* CTA */}
-    <Section className="bg-[hsl(var(--surface-secondary))]">
-      <div className="text-center reveal-scale">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {values.map((v, i) => (
+          <Card3D key={v.title} className={`card-glow rounded-2xl p-8 reveal delay-${Math.min(i + 1, 5)} group`}>
+            <h3 className="font-display text-lg font-semibold text-gold">{v.title}</h3>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{v.text}</p>
+          </Card3D>
+        ))}
+      </div>
+      <div className="mt-16 text-center reveal-scale">
         <Button variant="hero" size="lg" asChild className="btn-magnetic">
           <Link to="/contact">Work With Ritesh <ArrowRight size={15} className="ml-1.5" /></Link>
         </Button>
