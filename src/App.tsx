@@ -31,6 +31,7 @@ const App = () => (
           <Route path="/media/invite" element={<InviteRitesh />} />
           <Route path="/media/apply" element={<ApplyGuest />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/brands-ventures" element={<BrandsVentures />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
