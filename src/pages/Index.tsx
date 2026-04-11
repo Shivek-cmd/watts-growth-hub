@@ -40,13 +40,13 @@ const Index = () => (
     <section className="snap-section relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Hero image — full bleed on right, blending into background */}
       <div
-        className="hidden lg:block absolute inset-y-0 right-0 w-[50%]"
+        className="hidden lg:block absolute inset-y-0 right-0 w-[58%] xl:w-[54%]"
         style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}
       >
         <img
           src={heroImg}
           alt="Ritesh Watts — Author, Entrepreneur, Investor, and Speaker"
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[95%] min-w-[800px] w-auto object-contain"
+          className="absolute bottom-0 left-[44%] -translate-x-1/2 origin-bottom scale-[1.18] h-[95%] w-auto max-w-none object-contain"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-transparent to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-50" />
