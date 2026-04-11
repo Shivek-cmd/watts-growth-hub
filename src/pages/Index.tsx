@@ -148,7 +148,7 @@ const Index = () => (
     </Section>
 
     {/* ============ ABOUT PREVIEW — Parallax Background ============ */}
-    <section className="relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
+    <section className="snap-section relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
       <div className="parallax-bg">
         <img src={bgAbout} alt="" loading="lazy" width={1920} height={1080} className="opacity-20" />
       </div>
