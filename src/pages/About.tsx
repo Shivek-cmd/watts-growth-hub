@@ -1,8 +1,8 @@
 import Layout from "@/components/Layout";
-import SectionWrapper from "@/components/SectionWrapper";
+import Section from "@/components/SectionWrapper";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const beliefs = [
   "Growth should be strategic, not random.",
@@ -30,78 +30,104 @@ const values = [
 
 const About = () => (
   <Layout>
-    <section className="bg-gradient-hero">
-      <div className="container py-24 md:py-32">
-        <div className="max-w-3xl animate-fade-in">
-          <h1 className="text-4xl font-black tracking-tight md:text-6xl">About Ritesh <span className="text-gradient-gold">Watts</span></h1>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Author, Entrepreneur, Investor, and Speaker building ideas, ventures, and media that help ambitious people think bigger and move smarter.
-          </p>
-        </div>
+    {/* Hero */}
+    <section className="relative flex items-end min-h-[50vh] overflow-hidden">
+      <div className="ambient-glow w-[500px] h-[500px] bg-primary/10 -top-20 -right-20" />
+      <div className="container relative z-10 pb-16">
+        <p className="section-label reveal">About</p>
+        <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
+          About Ritesh <span className="text-gradient-gold">Watts</span>
+        </h1>
+        <p className="mt-6 text-lg text-muted-foreground max-w-2xl reveal delay-2">
+          Author, Entrepreneur, Investor, and Speaker building ideas, ventures, and media that help ambitious people think bigger and move smarter.
+        </p>
       </div>
     </section>
 
-    <SectionWrapper>
-      <h2 className="text-3xl font-bold md:text-4xl">The Journey</h2>
-      <div className="mt-8 max-w-3xl space-y-5 text-muted-foreground leading-relaxed">
-        <p>Ritesh Watts is an Indian-Canadian entrepreneur, author, and licensed immigration professional with a multi-dimensional platform built around growth, opportunity, and modern leverage. His work reflects a founder mindset: build strategically, serve meaningfully, and create systems that compound over time.</p>
-        <p>Ritesh's entrepreneurial journey began in his university years, when he started promoting education and impacting students at scale through tech-focused sessions and workshops across India. Over time, that early momentum evolved into a wider business ecosystem spanning services, training, technology, marketing, AI, and strategic business initiatives across India and Canada.</p>
-        <p>Today, Ritesh operates as President of Watts Group Ltd. Canada, overseeing a portfolio of service-driven businesses including a specialized AI division powered by Watts Technologies. His activities span consulting, global settlements, technology, marketing, jobs, and training across Canada and India.</p>
-        <p>Through his companies, media, and consulting work, Ritesh operates in founder, advisor, strategist, and investor roles — building a long-term platform that connects services, ideas, relationships, and audience trust.</p>
+    {/* Journey — Text Island */}
+    <Section>
+      <div className="max-w-3xl reveal">
+        <p className="section-label">The Journey</p>
+        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">The Journey</h2>
+        <div className="mt-8 space-y-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
+          <p>Ritesh Watts is an Indian-Canadian entrepreneur, author, and licensed immigration professional with a multi-dimensional platform built around growth, opportunity, and modern leverage. His work reflects a founder mindset: build strategically, serve meaningfully, and create systems that compound over time.</p>
+          <p>Ritesh's entrepreneurial journey began in his university years, when he started promoting education and impacting students at scale through tech-focused sessions and workshops across India. Over time, that early momentum evolved into a wider business ecosystem spanning services, training, technology, marketing, AI, and strategic business initiatives across India and Canada.</p>
+          <p>Today, Ritesh operates as President of Watts Group Ltd. Canada, overseeing a portfolio of service-driven businesses including a specialized AI division powered by Watts Technologies. His activities span consulting, global settlements, technology, marketing, jobs, and training across Canada and India.</p>
+          <p>Through his companies, media, and consulting work, Ritesh operates in founder, advisor, strategist, and investor roles — building a long-term platform that connects services, ideas, relationships, and audience trust.</p>
+        </div>
       </div>
-    </SectionWrapper>
+    </Section>
 
-    <SectionWrapper className="bg-gradient-section">
-      <h2 className="text-3xl font-bold md:text-4xl">What He Believes</h2>
-      <ul className="mt-8 max-w-2xl space-y-4">
-        {beliefs.map((b) => (
-          <li key={b} className="flex items-start gap-3 text-muted-foreground">
-            <Check size={18} className="mt-0.5 shrink-0 text-primary" />
-            <span>{b}</span>
-          </li>
-        ))}
-      </ul>
-    </SectionWrapper>
-
-    <SectionWrapper>
-      <h2 className="text-3xl font-bold md:text-4xl">What He Builds</h2>
-      <p className="mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-        Across his personal brand and business ecosystem, Ritesh operates through a network of companies and initiatives designed to create growth, service, and opportunity across multiple domains.
-      </p>
-      <Button variant="hero" size="lg" asChild className="mt-8">
-        <Link to="/brands-ventures">Explore Brands & Ventures <ArrowRight size={16} className="ml-1" /></Link>
-      </Button>
-    </SectionWrapper>
-
-    <SectionWrapper className="bg-gradient-section">
-      <h2 className="text-3xl font-bold md:text-4xl">Credentials & Affiliations</h2>
-      <ul className="mt-8 space-y-3">
-        {credentials.map((c) => (
-          <li key={c} className="flex items-start gap-3 text-muted-foreground">
-            <Check size={18} className="mt-0.5 shrink-0 text-secondary" />
-            <span>{c}</span>
-          </li>
-        ))}
-      </ul>
-    </SectionWrapper>
-
-    <SectionWrapper>
-      <h2 className="text-3xl font-bold md:text-4xl">Personal Values</h2>
-      <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {values.map((v) => (
-          <div key={v.title} className="rounded-xl border border-border bg-card p-6">
-            <h3 className="text-lg font-bold text-secondary">{v.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{v.text}</p>
-          </div>
-        ))}
+    {/* Beliefs */}
+    <Section className="bg-[hsl(var(--surface-secondary))]">
+      <div className="max-w-2xl reveal">
+        <p className="section-label">Philosophy</p>
+        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">What He Believes</h2>
+        <ul className="mt-10 space-y-5">
+          {beliefs.map((b, i) => (
+            <li key={i} className={`flex items-start gap-4 reveal delay-${Math.min(i + 1, 5)}`}>
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
+              <span className="text-muted-foreground">{b}</span>
+            </li>
+          ))}
+        </ul>
       </div>
-    </SectionWrapper>
+    </Section>
 
-    <SectionWrapper className="bg-gradient-section text-center">
-      <Button variant="hero" size="lg" asChild>
-        <Link to="/contact">Work With Ritesh <ArrowRight size={16} className="ml-1" /></Link>
-      </Button>
-    </SectionWrapper>
+    {/* What He Builds */}
+    <Section>
+      <div className="max-w-3xl reveal">
+        <p className="section-label">Ecosystem</p>
+        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">What He Builds</h2>
+        <p className="mt-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
+          Across his personal brand and business ecosystem, Ritesh operates through a network of companies and initiatives designed to create growth, service, and opportunity across multiple domains.
+        </p>
+        <Button variant="hero" size="lg" asChild className="mt-8">
+          <Link to="/brands-ventures">Explore Brands & Ventures <ArrowRight size={15} className="ml-1.5" /></Link>
+        </Button>
+      </div>
+    </Section>
+
+    {/* Credentials */}
+    <Section className="bg-[hsl(var(--surface-secondary))]">
+      <div className="max-w-2xl reveal">
+        <p className="section-label">Credentials</p>
+        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Credentials & Affiliations</h2>
+        <ul className="mt-10 space-y-4">
+          {credentials.map((c, i) => (
+            <li key={i} className={`flex items-start gap-4 reveal delay-${Math.min(i + 1, 5)}`}>
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+              <span className="text-muted-foreground">{c}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Section>
+
+    {/* Values */}
+    <Section>
+      <div className="max-w-3xl reveal">
+        <p className="section-label">Values</p>
+        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Personal Values</h2>
+        <div className="mt-12 space-y-10">
+          {values.map((v, i) => (
+            <div key={v.title} className={`reveal delay-${Math.min(i + 1, 5)}`}>
+              <h3 className="font-display text-lg font-semibold text-gold">{v.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{v.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+
+    {/* Final CTA */}
+    <Section className="bg-[hsl(var(--surface-secondary))]">
+      <div className="text-center reveal">
+        <Button variant="hero" size="lg" asChild>
+          <Link to="/contact">Work With Ritesh <ArrowRight size={15} className="ml-1.5" /></Link>
+        </Button>
+      </div>
+    </Section>
   </Layout>
 );
 

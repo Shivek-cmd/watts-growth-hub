@@ -28,29 +28,29 @@ const NewsletterBlock = ({ compact }: Props) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="bg-muted border-border"
+          className="bg-[hsl(var(--surface-secondary))] border-[hsl(var(--border))] h-12"
         />
-        <Button type="submit" variant="hero">Subscribe</Button>
+        <Button type="submit" variant="hero" className="h-12 shrink-0">Subscribe</Button>
       </form>
     );
   }
 
   return (
-    <div className="rounded-xl border border-border bg-card p-8 md:p-12 glow-primary">
-      <h2 className="text-2xl font-bold md:text-3xl">The Ritesh Watts Letter</h2>
-      <p className="mt-2 text-sm text-secondary font-medium">
-        Weekly insights on building smarter businesses, moving across borders, and growing long-term wealth.
+    <div>
+      <p className="section-label">Newsletter</p>
+      <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">
+        The Ritesh Watts Letter
+      </h2>
+      <p className="mt-4 max-w-lg text-muted-foreground">
+        Get practical ideas on founder mindset, AI leverage, cross-border opportunity, and wealth-building strategies — delivered weekly.
       </p>
-      <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
-        Get practical ideas on founder mindset, AI leverage, cross-border opportunity, and wealth-building strategies — delivered to your inbox every week.
-      </p>
-      <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-end">
+      <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3 sm:max-w-lg sm:flex-row">
         <Input
           type="text"
           placeholder="First Name (optional)"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="bg-muted border-border"
+          className="bg-[hsl(var(--surface-secondary))] border-[hsl(var(--border))] h-12"
         />
         <Input
           type="email"
@@ -58,9 +58,9 @@ const NewsletterBlock = ({ compact }: Props) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="bg-muted border-border"
+          className="bg-[hsl(var(--surface-secondary))] border-[hsl(var(--border))] h-12"
         />
-        <Button type="submit" variant="hero" className="sm:shrink-0">Subscribe</Button>
+        <Button type="submit" variant="hero" className="h-12 shrink-0">Subscribe</Button>
       </form>
       <p className="mt-3 text-xs text-muted-foreground">No spam. Only useful insights. Unsubscribe anytime.</p>
     </div>
