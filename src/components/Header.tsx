@@ -36,7 +36,7 @@ const Header = () => {
       }`}
     >
       <div className="container flex h-20 items-center justify-between">
-        <Link to="/" className="font-display text-xl font-semibold tracking-tight">
+        <Link to="/" className="font-display text-xl font-semibold tracking-tight typewriter-reveal">
           Ritesh <span className="text-gradient-gold">Watts</span>
         </Link>
 
