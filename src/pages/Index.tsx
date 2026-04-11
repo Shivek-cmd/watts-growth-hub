@@ -271,7 +271,7 @@ const Index = () => (
             { title: "Explore Media", text: "Real with Ritesh — conversations and clips.", cta: "Explore Media", href: "/media" },
             { title: "Read the Blog", text: "Weekly ideas and frameworks.", cta: "Read the Blog", href: "/blog" },
           ].map((card, i) => (
-            <Card3D key={card.title} className={`card-glow p-8 text-center reveal delay-${i + 1} group`}>
+            <Card3D key={card.title} className={`card-glow rounded-2xl p-8 text-center reveal delay-${i + 1} group`}>
               <h3 className="font-display text-lg font-semibold group-hover:text-gold transition-colors duration-300">{card.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{card.text}</p>
               <Button variant="hero" size="sm" asChild className="mt-6 btn-magnetic">
