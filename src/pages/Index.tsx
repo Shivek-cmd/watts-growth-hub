@@ -269,20 +269,20 @@ const Index = () => (
       <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)" }} />
       <div className="container relative z-10">
         <h2 className="font-display text-h2 font-semibold tracking-tight text-center reveal">Choose Your Next Step</h2>
-        <div className="mt-16 grid gap-px bg-[hsl(var(--border))] sm:grid-cols-2 lg:grid-cols-4 rounded-lg overflow-hidden">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { title: "Work With Ritesh", text: "Strategic consulting for founders and leaders.", cta: "Work With Ritesh", href: "/contact" },
             { title: "Book Ritesh to Speak", text: "Keynotes, panels, and founder conversations.", cta: "Book to Speak", href: "/speaking" },
             { title: "Explore Media", text: "Real with Ritesh — conversations and clips.", cta: "Explore Media", href: "/media" },
             { title: "Read the Blog", text: "Weekly ideas and frameworks.", cta: "Read the Blog", href: "/blog" },
           ].map((card, i) => (
-            <div key={card.title} className={`bg-background p-8 text-center reveal delay-${i + 1} group`}>
+            <Card3D key={card.title} className={`card-glow p-8 text-center reveal delay-${i + 1} group`}>
               <h3 className="font-display text-lg font-semibold group-hover:text-gold transition-colors duration-300">{card.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{card.text}</p>
               <Button variant="hero" size="sm" asChild className="mt-6 btn-magnetic">
                 <Link to={card.href}>{card.cta}</Link>
               </Button>
-            </div>
+            </Card3D>
           ))}
         </div>
       </div>

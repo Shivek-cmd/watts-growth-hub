@@ -51,7 +51,7 @@ const BrandsVentures = () => (
         <p className="section-label">Companies</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Companies Ritesh Owns</h2>
       </div>
-      <div className="mt-16 border-t border-[hsl(var(--border))]">
+      <div className="mt-16 grid gap-6 md:grid-cols-2">
         {companies.map((c, i) => (
           <div key={c.title} className={`card-glow p-8 md:p-10 reveal delay-${Math.min(i + 1, 5)} group`}>
             <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">{c.title}</h3>
