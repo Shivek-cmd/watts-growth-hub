@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero-ritesh.jpg";
 import bgAbout from "@/assets/bg-about.jpg";
-import speakingImg from "@/assets/speaking-stage.jpg";
+
 import podcastImg from "@/assets/media-podcast.jpg";
 import blogAi from "@/assets/blog-ai.jpg";
 import blogMigration from "@/assets/blog-migration.jpg";
@@ -172,12 +172,9 @@ const Index = () => (
     </section>
 
     {/* ============ SPEAKING PREVIEW — Left-aligned with bleed image ============ */}
-    <section className="relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
-      <div className="hidden md:block absolute inset-y-0 right-0 w-[45%]">
-        <img src={speakingImg} alt="" loading="lazy" width={1920} height={1080} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-[hsl(var(--background)/0.4)] to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-[hsl(var(--background)/0.3)]" />
-      </div>
+    <section className="relative overflow-hidden bg-[hsl(var(--surface-secondary))]" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "repeating-linear-gradient(135deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)" }} />
+      <div className="ambient-glow w-[500px] h-[500px] bg-gold/5 -bottom-40 -right-20" />
       <div className="container relative z-10">
         <div className="max-w-xl reveal-left">
           <p className="section-label">Speaking</p>
