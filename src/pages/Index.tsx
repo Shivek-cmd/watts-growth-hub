@@ -104,19 +104,19 @@ const Index = () => (
             { title: "Move", num: "02", text: "Career choices, migration, reverse migration, and cross-border opportunities across India, Canada, and beyond." },
             { title: "Grow", num: "03", text: "Wealth-building through business, real estate, and personal growth for long-term freedom and optionality." },
           ].map((p, i) => (
-            <div key={p.title} className={`reveal delay-${i + 1} group relative overflow-hidden`}>
+            <Card3D key={p.title} className={`reveal delay-${i + 1} scroll-tilt group relative overflow-hidden h-full`}>
               {/* Large background number */}
               <div className="absolute -top-6 -right-2 font-display text-[8rem] font-bold leading-none text-foreground/[0.03] group-hover:text-gold/[0.08] transition-colors duration-700 select-none pointer-events-none">
                 {p.num}
               </div>
-              <div className="relative z-10 h-full p-8 md:p-10 rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] hover:border-gold/40 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_20px_60px_-20px_rgba(199,165,93,0.15)]">
+              <div className="relative z-10 h-full p-8 md:p-10 border border-[hsl(var(--border))] bg-[hsl(var(--background))] rounded-[inherit]">
                 <div className="h-px w-12 bg-gold/60 group-hover:w-20 transition-all duration-500 mb-6" />
                 <h3 className="font-display text-3xl font-bold tracking-tight">
                   <span className="text-gradient-gold">{p.title}</span>
                 </h3>
                 <p className="mt-5 text-muted-foreground leading-relaxed">{p.text}</p>
               </div>
-            </div>
+            </Card3D>
           ))}
         </div>
       </div>
@@ -136,13 +136,15 @@ const Index = () => (
           { title: "Media & Podcast", text: "Real with Ritesh — a podcast and media platform featuring founders, operators, creators, investors, and experts with traction and stories worth sharing.", cta: "Explore Media", href: "/media" },
           { title: "Investing", text: "Ritesh invests in founders and businesses where he can add strategic value — through systems, AI, brand, and cross-border insight.", cta: "Reach Out", href: "/contact" },
         ].map((item, i) => (
-          <div key={item.title} className={`bg-[hsl(var(--surface-secondary))] p-10 md:p-12 reveal delay-${i + 1} group`}>
+          <div key={item.title} className={`card-glow bg-[hsl(var(--surface-secondary))] p-10 md:p-12 reveal delay-${i + 1} group`}>
             <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">{item.title}</h3>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-            <Link to={item.href} className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-gold transition-colors group/link link-underline">
-              {item.cta}
-              <ArrowRight size={14} className="transition-transform group-hover/link:translate-x-0.5" />
-            </Link>
+            <div className="card-reveal-content">
+              <Link to={item.href} className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-gold transition-colors group/link link-underline">
+                {item.cta}
+                <ArrowRight size={14} className="transition-transform group-hover/link:translate-x-0.5" />
+              </Link>
+            </div>
           </div>
         ))}
       </div>
