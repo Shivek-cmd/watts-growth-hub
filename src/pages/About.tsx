@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import bgAbout from "@/assets/bg-about.jpg";
+import riteshCollage from "@/assets/ritesh-collage.png";
 
 const beliefs = [
   "Growth should be strategic, not random.",
@@ -51,14 +52,22 @@ const About = () => (
 
     {/* Journey */}
     <Section>
-      <div className="max-w-3xl reveal-left">
-        <p className="section-label">The Journey</p>
-        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">The Journey</h2>
-        <div className="mt-8 space-y-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
-          <p>Ritesh Watts is an Indian-Canadian entrepreneur, author, and licensed immigration professional with a multi-dimensional platform built around growth, opportunity, and modern leverage. His work reflects a founder mindset: build strategically, serve meaningfully, and create systems that compound over time.</p>
-          <p>Ritesh's entrepreneurial journey began in his university years, when he started promoting education and impacting students at scale through tech-focused sessions and workshops across India. Over time, that early momentum evolved into a wider business ecosystem spanning services, training, technology, marketing, AI, and strategic business initiatives across India and Canada.</p>
-          <p>Today, Ritesh operates as President of Watts Group Ltd. Canada, overseeing a portfolio of service-driven businesses including a specialized AI division powered by Watts Technologies. His activities span consulting, global settlements, technology, marketing, jobs, and training across Canada and India.</p>
-          <p>Through his companies, media, and consulting work, Ritesh operates in founder, advisor, strategist, and investor roles — building a long-term platform that connects services, ideas, relationships, and audience trust.</p>
+      <div className="grid gap-12 lg:grid-cols-[1fr_auto] items-center">
+        <div className="reveal-left">
+          <p className="section-label">The Journey</p>
+          <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">The Journey</h2>
+          <div className="mt-8 space-y-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
+            <p>Ritesh Watts is an Indian-Canadian entrepreneur, author, and licensed immigration professional with a multi-dimensional platform built around growth, opportunity, and modern leverage. His work reflects a founder mindset: build strategically, serve meaningfully, and create systems that compound over time.</p>
+            <p>Ritesh's entrepreneurial journey began in his university years, when he started promoting education and impacting students at scale through tech-focused sessions and workshops across India. Over time, that early momentum evolved into a wider business ecosystem spanning services, training, technology, marketing, AI, and strategic business initiatives across India and Canada.</p>
+            <p>Today, Ritesh operates as President of Watts Group Ltd. Canada, overseeing a portfolio of service-driven businesses including a specialized AI division powered by Watts Technologies. His activities span consulting, global settlements, technology, marketing, jobs, and training across Canada and India.</p>
+            <p>Through his companies, media, and consulting work, Ritesh operates in founder, advisor, strategist, and investor roles — building a long-term platform that connects services, ideas, relationships, and audience trust.</p>
+          </div>
+        </div>
+        <div className="hidden lg:block reveal-right delay-2">
+          <div className="relative w-[420px] rounded-2xl overflow-hidden" data-parallax="-0.04">
+            <img src={riteshCollage} alt="Ritesh Watts — speaking, events, book launch, and community impact" width={840} height={560} className="w-full h-auto object-cover" style={{ animation: "img-scale-in 1.2s var(--ease-out) both" }} />
+            <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-40" />
+          </div>
         </div>
       </div>
     </Section>

@@ -92,22 +92,26 @@ const Index = () => (
 
     {/* ============ BUILD · MOVE · GROW ============ */}
     <Section>
-      <div className="max-w-3xl reveal">
+      <div className="text-center max-w-3xl mx-auto reveal">
         <p className="section-label">Three Pillars</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Build · Move · Grow</h2>
-        <p className="mt-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
+        <p className="mt-6 text-muted-foreground leading-relaxed mx-auto" style={{ maxWidth: "72ch" }}>
           Ritesh's work sits across three connected domains. Whether you are building a smarter business, moving across borders with purpose, or growing long-term wealth — there is a framework, a story, and a system that can help.
         </p>
       </div>
-      <div className="mt-16 grid gap-16 md:grid-cols-3">
+      <div className="mt-16 grid gap-8 md:grid-cols-3">
         {[
-          { title: "Build", text: "Founder mindset, systems, decisions, and AI leverage to build smarter businesses and stronger positioning." },
-          { title: "Move", text: "Career choices, migration, reverse migration, and cross-border opportunities across India, Canada, and beyond." },
-          { title: "Grow", text: "Wealth-building through business, real estate, and personal growth for long-term freedom and optionality." },
+          { title: "Build", icon: "🏗️", text: "Founder mindset, systems, decisions, and AI leverage to build smarter businesses and stronger positioning." },
+          { title: "Move", icon: "🌍", text: "Career choices, migration, reverse migration, and cross-border opportunities across India, Canada, and beyond." },
+          { title: "Grow", icon: "📈", text: "Wealth-building through business, real estate, and personal growth for long-term freedom and optionality." },
         ].map((p, i) => (
-          <div key={p.title} className={`reveal delay-${i + 1} card-hover p-6 rounded-xl border border-transparent hover:border-[hsl(var(--border))]`} data-parallax={`${0.02 * (i + 1)}`}>
-            <h3 className="font-display text-2xl font-semibold text-gradient-gold">{p.title}</h3>
-            <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{p.text}</p>
+          <div key={p.title} className={`reveal delay-${i + 1} group relative p-8 md:p-10 rounded-2xl bg-[hsl(var(--surface-secondary))] border border-[hsl(var(--border))] hover:border-gold/30 transition-all duration-500 hover:-translate-y-1`}>
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative z-10">
+              <span className="text-3xl">{p.icon}</span>
+              <h3 className="mt-4 font-display text-2xl font-semibold text-gradient-gold">{p.title}</h3>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{p.text}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -165,12 +169,12 @@ const Index = () => (
       <div className="parallax-bg parallax-slow">
         <img src={speakingImg} alt="" loading="lazy" width={1920} height={1080} className="opacity-15" />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-[hsl(var(--background)/0.85)] to-[hsl(var(--background)/0.6)]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-[hsl(var(--background)/0.8)] to-[hsl(var(--background))]" />
       <div className="container relative z-10">
-        <div className="max-w-3xl reveal-left">
+        <div className="max-w-3xl mx-auto text-center reveal">
           <p className="section-label">Speaking</p>
           <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Book Ritesh to Speak</h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
+          <p className="mt-6 text-muted-foreground leading-relaxed mx-auto" style={{ maxWidth: "72ch" }}>
             Ritesh speaks on AI for business, founder mindset and decision-making, personal branding and business systems, and India–Canada cross-border opportunity. His sessions are practical, rooted in real execution, and designed to leave audiences with frameworks they can apply immediately.
           </p>
           <Button variant="hero" size="lg" asChild className="mt-8 btn-magnetic">
@@ -207,10 +211,10 @@ const Index = () => (
 
     {/* ============ BLOG PREVIEW ============ */}
     <Section className="bg-[hsl(var(--surface-secondary))]">
-      <div className="reveal-right">
+      <div className="text-center max-w-3xl mx-auto reveal">
         <p className="section-label">Blog</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Read the Blog</h2>
-        <p className="mt-2 text-sm text-gold">Actionable perspectives on building smarter businesses, moving across borders, and growing long-term wealth.</p>
+        <p className="mt-4 text-muted-foreground">Actionable perspectives on building smarter businesses, moving across borders, and growing long-term wealth.</p>
       </div>
       <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {blogPosts.map((post, i) => (
