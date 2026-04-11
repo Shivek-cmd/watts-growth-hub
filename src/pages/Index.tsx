@@ -22,8 +22,15 @@ const Index = () => (
   <Layout>
     {/* ============ HERO ============ */}
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      {/* Hero image — full bleed on right, blending into background */}
+      <div className="hidden lg:block absolute inset-y-0 right-0 w-[55%]" style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}>
+        <img src={heroImg} alt="Ritesh Watts — Author, Entrepreneur, Investor, and Speaker" width={960} height={1080} className="w-full h-full object-cover object-top" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-[hsl(var(--background)/0.6)] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-[hsl(var(--background)/0.3)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-transparent to-transparent opacity-60" />
+      </div>
+
       <div className="ambient-glow w-[600px] h-[600px] bg-primary/10 -top-40 -left-40" />
-      <div className="ambient-glow w-[400px] h-[400px] bg-gold/5 bottom-0 right-0" />
 
       <div className="hero-rings">
         <svg width="800" height="800" viewBox="0 0 800 800" fill="none">
@@ -45,46 +52,36 @@ const Index = () => (
       </div>
 
       <div className="container relative z-10">
-        <div className="grid gap-12 items-center lg:grid-cols-[1fr_auto]">
-          <div>
-            <p className="section-label reveal">Author · Entrepreneur · Investor · Speaker</p>
-            <h1 className="mt-6 font-display text-hero font-bold tracking-tight leading-[1.05] reveal delay-1">
-              Ritesh{" "}<span className="text-shimmer">Watts</span>
-            </h1>
-            <p className="mt-8 text-lg leading-relaxed text-muted-foreground max-w-2xl reveal delay-2" style={{ maxWidth: "72ch" }}>
-              Helping ambitious people build smarter businesses, move across borders strategically, and grow long-term wealth.
-            </p>
-            <p className="mt-4 text-sm text-muted-foreground/70 max-w-xl reveal delay-3">
-              Through business, AI, migration insight, media, and founder-led thinking — practical ideas, real stories, and strategic frameworks for people who grow with intention.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4 reveal delay-4">
-              <Button variant="hero" size="lg" asChild className="btn-magnetic">
-                <Link to="/speaking">Book Ritesh to Speak</Link>
-              </Button>
-              <Button variant="hero-outline" size="lg" asChild className="btn-magnetic">
-                <Link to="/contact">Work With Ritesh</Link>
-              </Button>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-6 reveal delay-5">
-              {[
-                { label: "Explore Media", href: "/media" },
-                { label: "Read the Blog", href: "/blog" },
-                { label: "Subscribe to Newsletter", href: "/#newsletter" },
-              ].map((link) => (
-                <Link key={link.label} to={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 group link-underline">
-                  {link.label}
-                  <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
-                </Link>
-              ))}
-            </div>
+        <div className="max-w-2xl">
+          <p className="section-label reveal">Author · Entrepreneur · Investor · Speaker</p>
+          <h1 className="mt-6 font-display text-hero font-bold tracking-tight leading-[1.05] reveal delay-1">
+            Ritesh{" "}<span className="text-shimmer">Watts</span>
+          </h1>
+          <p className="mt-8 text-lg leading-relaxed text-muted-foreground max-w-2xl reveal delay-2" style={{ maxWidth: "72ch" }}>
+            Helping ambitious people build smarter businesses, move across borders strategically, and grow long-term wealth.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground/70 max-w-xl reveal delay-3">
+            Through business, AI, migration insight, media, and founder-led thinking — practical ideas, real stories, and strategic frameworks for people who grow with intention.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-4 reveal delay-4">
+            <Button variant="hero" size="lg" asChild className="btn-magnetic">
+              <Link to="/speaking">Book Ritesh to Speak</Link>
+            </Button>
+            <Button variant="hero-outline" size="lg" asChild className="btn-magnetic">
+              <Link to="/contact">Work With Ritesh</Link>
+            </Button>
           </div>
-
-          {/* Hero image with subtle foreground parallax */}
-          <div className="hidden lg:block reveal-right delay-2">
-            <div className="relative w-[380px] h-[480px] rounded-2xl overflow-hidden" data-parallax="-0.05">
-              <img src={heroImg} alt="Ritesh Watts — Author, Entrepreneur, Investor, and Speaker" width={380} height={480} className="w-full h-full object-cover object-top" style={{ animation: "img-scale-in 1.2s var(--ease-out) both" }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-60" />
-            </div>
+          <div className="mt-8 flex flex-wrap gap-6 reveal delay-5">
+            {[
+              { label: "Explore Media", href: "/media" },
+              { label: "Read the Blog", href: "/blog" },
+              { label: "Subscribe to Newsletter", href: "/#newsletter" },
+            ].map((link) => (
+              <Link key={link.label} to={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 group link-underline">
+                {link.label}
+                <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            ))}
           </div>
         </div>
       </div>
