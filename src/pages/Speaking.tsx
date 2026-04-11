@@ -124,7 +124,7 @@ const Speaking = () => {
 
       {/* Inquiry Form */}
       <Section id="speaking-inquiry" className="bg-[hsl(var(--surface-secondary))]">
-        <div className="max-w-2xl reveal">
+        <div className="max-w-2xl mx-auto reveal">
           <p className="section-label">Inquiry</p>
           <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Speaking Inquiry</h2>
           <p className="mt-4 text-muted-foreground">Share details about the event so the team can review and respond.</p>
