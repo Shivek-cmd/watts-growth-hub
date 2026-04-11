@@ -16,7 +16,7 @@ const Footer = () => (
       <div className="grid gap-16 md:grid-cols-[2fr_1fr_1fr]">
         {/* Brand */}
         <div>
-          <Link to="/" className="font-display text-2xl font-semibold tracking-tight">
+          <Link to="/" className="font-display text-2xl font-semibold tracking-tight typewriter-reveal">
             Ritesh <span className="text-gradient-gold">Watts</span>
           </Link>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground leading-relaxed">
