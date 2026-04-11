@@ -146,14 +146,10 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-16 border-t border-[hsl(var(--border))] pt-8 flex flex-col sm:flex-row justify-between gap-4">
+      <div className="mt-16 border-t border-[hsl(var(--border))] pt-8 text-center">
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Ritesh Watts. All rights reserved.
         </p>
-        <div className="flex gap-6">
-          <Link to="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy</Link>
-          <Link to="/terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms</Link>
-        </div>
       </div>
     </div>
   </footer>
