@@ -46,7 +46,7 @@ const Index = () => (
         <img
           src={heroImg}
           alt="Ritesh Watts — Author, Entrepreneur, Investor, and Speaker"
-          className="absolute bottom-0 left-[44%] -translate-x-1/2 origin-bottom scale-[1.18] h-[95%] w-auto max-w-none object-contain"
+          className="absolute bottom-0 left-[44%] -translate-x-1/2 origin-bottom scale-[1.18] h-[90%] w-auto max-w-none object-contain"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-transparent to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-50" />
