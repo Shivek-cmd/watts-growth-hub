@@ -76,7 +76,7 @@ const Footer = () => (
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="text-muted-foreground hover:text-gold transition-colors duration-300"
+                className="flex items-center justify-center w-9 h-9 rounded-full border border-[hsl(var(--border))] text-muted-foreground hover:text-gold hover:border-gold transition-all duration-300"
               >
                 {s.icon}
               </a>
@@ -146,14 +146,10 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-16 border-t border-[hsl(var(--border))] pt-8 flex flex-col sm:flex-row justify-between gap-4">
+      <div className="mt-16 border-t border-[hsl(var(--border))] pt-8 text-center">
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Ritesh Watts. All rights reserved.
         </p>
-        <div className="flex gap-6">
-          <Link to="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Privacy</Link>
-          <Link to="/terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Terms</Link>
-        </div>
       </div>
     </div>
   </footer>
