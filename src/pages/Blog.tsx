@@ -33,11 +33,9 @@ const Blog = () => {
           <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
             <span className="text-gradient-gold">Blog</span>
           </h1>
-          <p className="mt-4 text-gold text-sm font-medium reveal delay-2">
-            Actionable perspectives on building smarter businesses, moving across borders, and growing long-term wealth.
-          </p>
+          <p className="mt-4 text-gold text-sm font-medium reveal delay-2">Build · Move · Grow</p>
           <p className="mt-4 text-muted-foreground max-w-2xl leading-relaxed reveal delay-3">
-            Real founder lessons, practical frameworks, and ideas on AI, business systems, cross-border opportunity, and wealth-building.
+            Actionable perspectives on building smarter businesses, moving across borders, and growing long-term wealth. Real founder lessons, practical frameworks, and ideas worth sharing.
           </p>
         </div>
       </section>

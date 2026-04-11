@@ -45,8 +45,9 @@ const About = () => (
         <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
           About Ritesh <span className="text-shimmer">Watts</span>
         </h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl reveal delay-2">
-          Author, Entrepreneur, Investor, and Speaker building ideas, ventures, and media that help ambitious people think bigger and move smarter.
+        <p className="mt-4 text-gold text-sm font-medium reveal delay-2">Author · Entrepreneur · Investor · Speaker</p>
+        <p className="mt-4 text-lg text-muted-foreground max-w-2xl reveal delay-3">
+          Building ideas, ventures, and media that help ambitious people think bigger and move smarter.
         </p>
       </div>
     </section>

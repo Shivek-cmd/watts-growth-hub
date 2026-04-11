@@ -41,7 +41,8 @@ const BrandsVentures = () => (
         <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
           Brands & <span className="text-shimmer">Ventures</span>
         </h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl reveal delay-2">
+        <p className="mt-4 text-gold text-sm font-medium reveal delay-2">Companies · Partnerships · Strategic Platforms</p>
+        <p className="mt-4 text-lg text-muted-foreground max-w-2xl reveal delay-3">
           A founder-led network of businesses, ventures, partnerships, and strategic platforms.
         </p>
       </div>
