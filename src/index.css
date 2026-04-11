@@ -459,7 +459,6 @@
   /* Blog card image zoom */
   .blog-card-img {
     overflow: hidden;
-    border-radius: var(--radius);
   }
 
   .blog-card-img img {
