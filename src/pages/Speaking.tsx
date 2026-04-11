@@ -54,10 +54,11 @@ const Speaking = () => {
           <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
             Book Ritesh Watts to <span className="text-shimmer">Speak</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl reveal delay-2">
+          <p className="mt-4 text-gold text-sm font-medium reveal delay-2">Keynotes · Panels · Fireside Chats · Workshops</p>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl reveal delay-3">
             Practical, energizing talks on AI, founder mindset, business systems, personal brand leverage, and strategic growth for ambitious audiences.
           </p>
-          <Button variant="hero" size="lg" asChild className="mt-8 reveal delay-3 btn-magnetic">
+          <Button variant="hero" size="lg" asChild className="mt-8 reveal delay-4 btn-magnetic">
             <a href="#speaking-inquiry">Book Ritesh to Speak</a>
           </Button>
         </div>
