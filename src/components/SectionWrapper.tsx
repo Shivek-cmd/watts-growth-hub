@@ -7,10 +7,14 @@ interface Props {
   id?: string;
 }
 
-const SectionWrapper = ({ children, className, id }: Props) => (
-  <section id={id} className={cn("py-20 md:py-28", className)}>
+const Section = ({ children, className, id }: Props) => (
+  <section
+    id={id}
+    className={cn("relative", className)}
+    style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}
+  >
     <div className="container">{children}</div>
   </section>
 );
 
-export default SectionWrapper;
+export default Section;
