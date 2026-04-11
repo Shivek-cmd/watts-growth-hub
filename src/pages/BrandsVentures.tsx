@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import Section from "@/components/SectionWrapper";
-import { ArrowRight, Award, ExternalLink } from "lucide-react";
+import { Award, ExternalLink } from "lucide-react";
+import bgAbout from "@/assets/bg-about.jpg";
 
 const companies = [
   { title: "Watts Group", text: "A broader business platform supporting growth, strategic development, and long-term opportunity creation across consulting, technology, marketing, jobs, and training." },
@@ -29,11 +30,15 @@ const asSeenIn = [
 const BrandsVentures = () => (
   <Layout>
     <section className="relative flex items-end min-h-[50vh] overflow-hidden">
+      <div className="parallax-bg">
+        <img src={bgAbout} alt="" width={1920} height={1080} className="opacity-15" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-[hsl(var(--background)/0.7)] to-transparent" />
       <div className="ambient-glow w-[500px] h-[500px] bg-gold/5 -top-20 -left-20" />
       <div className="container relative z-10 pb-16">
         <p className="section-label reveal">Portfolio</p>
         <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
-          Brands & <span className="text-gradient-gold">Ventures</span>
+          Brands & <span className="text-shimmer">Ventures</span>
         </h1>
         <p className="mt-6 text-lg text-muted-foreground max-w-2xl reveal delay-2">
           A founder-led network of businesses, ventures, partnerships, and strategic platforms.
@@ -46,14 +51,13 @@ const BrandsVentures = () => (
         <p className="section-label">Companies</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Companies Ritesh Owns</h2>
       </div>
-      {/* Open space — no cards, just lines */}
       <div className="mt-16 border-t border-[hsl(var(--border))]">
         {companies.map((c, i) => (
-          <div key={c.title} className={`border-b border-[hsl(var(--border))] py-10 md:py-12 reveal delay-${Math.min(i + 1, 5)}`}>
-            <h3 className="font-display text-xl font-semibold">{c.title}</h3>
+          <div key={c.title} className={`border-b border-[hsl(var(--border))] py-10 md:py-12 reveal delay-${Math.min(i + 1, 5)} group`}>
+            <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">{c.title}</h3>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xl">{c.text}</p>
-            <button className="mt-4 text-sm font-medium text-foreground hover:text-gold transition-colors flex items-center gap-1.5 group">
-              Visit {c.title} <ExternalLink size={13} className="transition-transform group-hover:translate-x-0.5" />
+            <button className="mt-4 text-sm font-medium text-foreground hover:text-gold transition-colors flex items-center gap-1.5 group/link link-underline">
+              Visit {c.title} <ExternalLink size={13} className="transition-transform group-hover/link:translate-x-0.5" />
             </button>
           </div>
         ))}
@@ -61,7 +65,7 @@ const BrandsVentures = () => (
     </Section>
 
     <Section className="bg-[hsl(var(--surface-secondary))]">
-      <div className="max-w-3xl reveal">
+      <div className="max-w-3xl reveal-left">
         <p className="section-label">Partners</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Brands Ritesh Works With</h2>
         <p className="mt-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
@@ -75,9 +79,9 @@ const BrandsVentures = () => (
       <div className="max-w-2xl reveal">
         <p className="section-label">Recognition</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Recognition & Achievements</h2>
-        <div className="mt-10 space-y-5">
-          {achievements.map((a, i) => (
-            <div key={a} className={`flex items-center gap-4 reveal delay-${Math.min(i + 1, 5)}`}>
+        <div className="mt-10 space-y-5 stagger-list reveal">
+          {achievements.map((a) => (
+            <div key={a} className="flex items-center gap-4">
               <Award size={18} className="shrink-0 text-gold" />
               <span className="text-muted-foreground">{a}</span>
             </div>
@@ -86,7 +90,6 @@ const BrandsVentures = () => (
       </div>
     </Section>
 
-    {/* As Seen In — Marquee drift */}
     <Section className="bg-[hsl(var(--surface-secondary))] overflow-hidden">
       <div className="reveal">
         <p className="section-label text-center">Press</p>
@@ -100,7 +103,7 @@ const BrandsVentures = () => (
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg font-display font-semibold text-muted-foreground/40 hover:text-muted-foreground transition-colors whitespace-nowrap"
+              className="text-lg font-display font-semibold text-muted-foreground/40 hover:text-gold transition-colors duration-300 whitespace-nowrap"
             >
               {item.name}
             </a>

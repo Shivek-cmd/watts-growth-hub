@@ -9,26 +9,24 @@ interface Props {
 
 const NewsletterBlock = ({ compact }: Props) => {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     toast.success("Thank you for subscribing!");
     setEmail("");
-    setName("");
   };
 
   if (compact) {
     return (
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row sm:justify-center">
         <Input
           type="email"
           placeholder="Email Address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="bg-[hsl(var(--surface-secondary))] border-[hsl(var(--border))] h-12"
+          className="bg-[hsl(var(--surface-secondary))] border-[hsl(var(--border))] h-12 sm:max-w-xs"
         />
         <Button type="submit" variant="hero" className="h-12 shrink-0">Subscribe</Button>
       </form>
@@ -36,22 +34,15 @@ const NewsletterBlock = ({ compact }: Props) => {
   }
 
   return (
-    <div>
+    <div className="text-center">
       <p className="section-label">Newsletter</p>
       <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">
         The Ritesh Watts Letter
       </h2>
-      <p className="mt-4 max-w-lg text-muted-foreground">
+      <p className="mt-4 max-w-lg mx-auto text-muted-foreground">
         Get practical ideas on founder mindset, AI leverage, cross-border opportunity, and wealth-building strategies — delivered weekly.
       </p>
-      <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3 sm:max-w-lg sm:flex-row">
-        <Input
-          type="text"
-          placeholder="First Name (optional)"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="bg-[hsl(var(--surface-secondary))] border-[hsl(var(--border))] h-12"
-        />
+      <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center sm:max-w-md mx-auto">
         <Input
           type="email"
           placeholder="Email Address *"

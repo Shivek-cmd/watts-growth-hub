@@ -8,7 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
+import speakingImg from "@/assets/speaking-stage.jpg";
 
 const whyBook = [
   "Founder-led perspective rooted in real execution, not theory.",
@@ -41,29 +42,34 @@ const Speaking = () => {
 
   return (
     <Layout>
+      {/* Hero with parallax */}
       <section className="relative flex items-end min-h-[50vh] overflow-hidden">
+        <div className="parallax-bg">
+          <img src={speakingImg} alt="" width={1920} height={1080} className="opacity-20" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-[hsl(var(--background)/0.6)] to-[hsl(var(--background)/0.3)]" />
         <div className="ambient-glow w-[500px] h-[500px] bg-primary/10 -top-20 -right-20" />
         <div className="container relative z-10 pb-16">
           <p className="section-label reveal">Speaking</p>
           <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
-            Book Ritesh Watts to <span className="text-gradient-gold">Speak</span>
+            Book Ritesh Watts to <span className="text-shimmer">Speak</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl reveal delay-2">
             Practical, energizing talks on AI, founder mindset, business systems, personal brand leverage, and strategic growth for ambitious audiences.
           </p>
-          <Button variant="hero" size="lg" asChild className="mt-8 reveal delay-3">
+          <Button variant="hero" size="lg" asChild className="mt-8 reveal delay-3 btn-magnetic">
             <a href="#speaking-inquiry">Book Ritesh to Speak</a>
           </Button>
         </div>
       </section>
 
       <Section>
-        <div className="max-w-2xl reveal">
+        <div className="max-w-2xl reveal-left">
           <p className="section-label">Why Ritesh</p>
           <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Why Organizers Book Ritesh</h2>
-          <ul className="mt-10 space-y-5">
+          <ul className="mt-10 space-y-5 stagger-list reveal">
             {whyBook.map((b, i) => (
-              <li key={i} className={`flex items-start gap-4 reveal delay-${Math.min(i + 1, 5)}`}>
+              <li key={i} className="flex items-start gap-4">
                 <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
                 <span className="text-muted-foreground">{b}</span>
               </li>
@@ -72,7 +78,7 @@ const Speaking = () => {
         </div>
       </Section>
 
-      {/* Topics — stagger cascade */}
+      {/* Topics */}
       <Section className="bg-[hsl(var(--surface-secondary))]">
         <div className="reveal">
           <p className="section-label">Topics</p>
@@ -80,8 +86,8 @@ const Speaking = () => {
         </div>
         <div className="mt-16 space-y-0 border-t border-[hsl(var(--border))]">
           {topics.map((t, i) => (
-            <div key={t.title} className={`border-b border-[hsl(var(--border))] py-10 reveal delay-${Math.min(i + 1, 5)}`}>
-              <h3 className="font-display text-xl font-semibold">{t.title}</h3>
+            <div key={t.title} className={`border-b border-[hsl(var(--border))] py-10 reveal delay-${Math.min(i + 1, 5)} group`}>
+              <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">{t.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xl">{t.text}</p>
             </div>
           ))}
@@ -90,19 +96,19 @@ const Speaking = () => {
 
       <Section>
         <div className="grid gap-16 md:grid-cols-2">
-          <div className="reveal">
+          <div className="reveal-left">
             <p className="section-label">Formats</p>
             <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Event Formats</h2>
             <div className="mt-8 flex flex-wrap gap-3">
               {formats.map((f) => (
-                <span key={f} className="rounded-full border border-[hsl(var(--border-hover))] px-4 py-2 text-sm text-muted-foreground">{f}</span>
+                <span key={f} className="rounded-full border border-[hsl(var(--border-hover))] px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:border-gold/30 transition-all duration-300">{f}</span>
               ))}
             </div>
           </div>
-          <div className="reveal delay-2">
+          <div className="reveal-right">
             <p className="section-label">Audiences</p>
             <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Ideal Audiences</h2>
-            <ul className="mt-8 space-y-3">
+            <ul className="mt-8 space-y-3 stagger-list reveal">
               {audiences.map((a) => (
                 <li key={a} className="flex items-center gap-3 text-sm text-muted-foreground">
                   <span className="h-1 w-1 rounded-full bg-primary shrink-0" />
@@ -122,29 +128,31 @@ const Speaking = () => {
           <p className="mt-4 text-muted-foreground">Share details about the event so the team can review and respond.</p>
 
           {submitted ? (
-            <div className="mt-12 py-12 text-center">
-              <Check size={40} className="mx-auto text-primary" />
+            <div className="mt-12 py-12 text-center reveal-scale visible">
+              <div className="pulse-glow inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 mb-4">
+                <Check size={32} className="text-primary" />
+              </div>
               <p className="mt-4 font-display text-xl font-semibold">Thank you for your inquiry.</p>
               <p className="mt-2 text-sm text-muted-foreground">Our team will get back to you within 2–3 business days.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="mt-10 space-y-6">
               <div className="grid gap-6 sm:grid-cols-2">
-                <div><Label className="text-xs text-muted-foreground">Organizer Name *</Label><Input required className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
-                <div><Label className="text-xs text-muted-foreground">Organization</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
-                <div><Label className="text-xs text-muted-foreground">Email Address *</Label><Input type="email" required className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
-                <div><Label className="text-xs text-muted-foreground">Phone / WhatsApp</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
-                <div><Label className="text-xs text-muted-foreground">Event Name</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
-                <div><Label className="text-xs text-muted-foreground">Event Website</Label><Input type="url" className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
+                <div><Label className="text-xs text-muted-foreground">Organizer Name *</Label><Input required className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12 focus:border-primary transition-colors" /></div>
+                <div><Label className="text-xs text-muted-foreground">Organization</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12 focus:border-primary transition-colors" /></div>
+                <div><Label className="text-xs text-muted-foreground">Email Address *</Label><Input type="email" required className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12 focus:border-primary transition-colors" /></div>
+                <div><Label className="text-xs text-muted-foreground">Phone / WhatsApp</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12 focus:border-primary transition-colors" /></div>
+                <div><Label className="text-xs text-muted-foreground">Event Name</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12 focus:border-primary transition-colors" /></div>
+                <div><Label className="text-xs text-muted-foreground">Event Website</Label><Input type="url" className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12 focus:border-primary transition-colors" /></div>
                 <div>
                   <Label className="text-xs text-muted-foreground">Event Type</Label>
                   <Select><SelectTrigger className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12"><SelectValue placeholder="Select" /></SelectTrigger>
                     <SelectContent>{["Conference","College","Corporate","Community","Podcast","Webinar","Private Event","Other"].map(o => <SelectItem key={o} value={o}>{o}</SelectItem>)}</SelectContent>
                   </Select>
                 </div>
-                <div><Label className="text-xs text-muted-foreground">Date of Event</Label><Input type="date" className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
-                <div><Label className="text-xs text-muted-foreground">City / Country / Virtual</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
-                <div><Label className="text-xs text-muted-foreground">Audience Size</Label><Input type="number" className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
+                <div><Label className="text-xs text-muted-foreground">Date of Event</Label><Input type="date" className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12 focus:border-primary transition-colors" /></div>
+                <div><Label className="text-xs text-muted-foreground">City / Country / Virtual</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12 focus:border-primary transition-colors" /></div>
+                <div><Label className="text-xs text-muted-foreground">Audience Size</Label><Input type="number" className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12 focus:border-primary transition-colors" /></div>
                 <div>
                   <Label className="text-xs text-muted-foreground">Speaking Format</Label>
                   <Select><SelectTrigger className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12"><SelectValue placeholder="Select" /></SelectTrigger>
@@ -175,9 +183,9 @@ const Speaking = () => {
                   ))}
                 </RadioGroup>
               </div>
-              <div><Label className="text-xs text-muted-foreground">Decision Deadline</Label><Input type="date" className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
-              <div><Label className="text-xs text-muted-foreground">Additional Notes</Label><Textarea className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))]" rows={4} /></div>
-              <Button type="submit" variant="hero" size="lg">Submit Inquiry</Button>
+              <div><Label className="text-xs text-muted-foreground">Decision Deadline</Label><Input type="date" className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12 focus:border-primary transition-colors" /></div>
+              <div><Label className="text-xs text-muted-foreground">Additional Notes</Label><Textarea className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] focus:border-primary transition-colors" rows={4} /></div>
+              <Button type="submit" variant="hero" size="lg" className="btn-magnetic">Submit Inquiry</Button>
             </form>
           )}
         </div>
