@@ -106,11 +106,11 @@ const BlogPost = () => {
       </section>
 
       {/* Content with TOC */}
-      <Section>
-        <div className="grid gap-16 lg:grid-cols-[240px_1fr]">
-          {/* Sticky TOC */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-28">
+      <section className="relative" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
+        <div className="container">
+          <div className="grid gap-16 lg:grid-cols-[240px_1fr] items-start">
+            {/* Sticky TOC */}
+            <aside className="hidden lg:block sticky top-28 self-start">
               <p className="text-xs font-semibold uppercase tracking-widest text-gold mb-4">Table of Contents</p>
               <nav className="space-y-3">
                 {post.toc.map((item, i) => (
@@ -123,33 +123,33 @@ const BlogPost = () => {
                   </a>
                 ))}
               </nav>
-            </div>
-          </aside>
+            </aside>
 
-          {/* Article body */}
-          <article className="max-w-3xl">
-            {/* Featured image */}
-            <div className="rounded-2xl overflow-hidden mb-12 reveal">
-              <img src={post.image} alt={post.title} width={1200} height={600} className="w-full aspect-[2/1] object-cover" />
-            </div>
-
-            <p className="text-lg text-muted-foreground leading-relaxed mb-12 reveal delay-1">
-              {post.excerpt}
-            </p>
-
-            {post.content.map((section, i) => (
-              <div key={section.heading} id={`section-${i}`} className={`mb-12 reveal delay-${Math.min(i + 1, 3)}`}>
-                <h2 className="font-display text-h2 font-semibold tracking-tight mb-6">{section.heading}</h2>
-                {section.body.split("\n\n").map((para, j) => (
-                  <p key={j} className="text-muted-foreground leading-relaxed mb-4" style={{ maxWidth: "72ch" }}>
-                    {para}
-                  </p>
-                ))}
+            {/* Article body */}
+            <article className="max-w-3xl">
+              {/* Featured image */}
+              <div className="rounded-2xl overflow-hidden mb-12 reveal">
+                <img src={post.image} alt={post.title} width={1200} height={600} className="w-full aspect-[2/1] object-cover" />
               </div>
-            ))}
-          </article>
+
+              <p className="text-lg text-muted-foreground leading-relaxed mb-12 reveal delay-1">
+                {post.excerpt}
+              </p>
+
+              {post.content.map((section, i) => (
+                <div key={section.heading} id={`section-${i}`} className={`mb-12 reveal delay-${Math.min(i + 1, 3)}`}>
+                  <h2 className="font-display text-h2 font-semibold tracking-tight mb-6">{section.heading}</h2>
+                  {section.body.split("\n\n").map((para, j) => (
+                    <p key={j} className="text-muted-foreground leading-relaxed mb-4" style={{ maxWidth: "72ch" }}>
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              ))}
+            </article>
+          </div>
         </div>
-      </Section>
+      </section>
 
       {/* Related Posts */}
       <Section className="bg-[hsl(var(--surface-secondary))]">
