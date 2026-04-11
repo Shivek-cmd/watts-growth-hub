@@ -74,10 +74,10 @@ const About = () => (
 
     {/* Beliefs */}
     <Section className="bg-[hsl(var(--surface-secondary))]">
-      <div className="max-w-2xl reveal">
+      <div className="max-w-2xl mx-auto text-center reveal">
         <p className="section-label">Philosophy</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">What He Believes</h2>
-        <ul className="mt-10 space-y-5 stagger-list reveal">
+        <ul className="mt-10 space-y-5 stagger-list reveal text-left inline-block">
           {beliefs.map((b, i) => (
             <li key={i} className="flex items-start gap-4">
               <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-gold shrink-0" />
@@ -90,10 +90,10 @@ const About = () => (
 
     {/* What He Builds */}
     <Section>
-      <div className="max-w-3xl reveal-right">
+      <div className="max-w-3xl mx-auto text-center reveal">
         <p className="section-label">Ecosystem</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">What He Builds</h2>
-        <p className="mt-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
+        <p className="mt-6 text-muted-foreground leading-relaxed mx-auto" style={{ maxWidth: "72ch" }}>
           Across his personal brand and business ecosystem, Ritesh operates through a network of companies and initiatives designed to create growth, service, and opportunity across multiple domains.
         </p>
         <Button variant="hero" size="lg" asChild className="mt-8 btn-magnetic">
@@ -104,10 +104,10 @@ const About = () => (
 
     {/* Credentials */}
     <Section className="bg-[hsl(var(--surface-secondary))]">
-      <div className="max-w-2xl reveal">
+      <div className="max-w-2xl mx-auto text-center reveal">
         <p className="section-label">Credentials</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Credentials & Affiliations</h2>
-        <ul className="mt-10 space-y-4 stagger-list reveal">
+        <ul className="mt-10 space-y-4 stagger-list reveal text-left inline-block">
           {credentials.map((c, i) => (
             <li key={i} className="flex items-start gap-4">
               <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
@@ -120,10 +120,10 @@ const About = () => (
 
     {/* Values */}
     <Section>
-      <div className="max-w-3xl reveal">
+      <div className="max-w-3xl mx-auto text-center reveal">
         <p className="section-label">Values</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Personal Values</h2>
-        <div className="mt-12 space-y-10">
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 text-left">
           {values.map((v, i) => (
             <div key={v.title} className={`reveal delay-${Math.min(i + 1, 5)}`}>
               <h3 className="font-display text-lg font-semibold text-gold">{v.title}</h3>
