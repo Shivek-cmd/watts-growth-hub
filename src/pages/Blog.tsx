@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import Section from "@/components/SectionWrapper";
 import { Button } from "@/components/ui/button";
 import NewsletterBlock from "@/components/NewsletterBlock";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import blogAi from "@/assets/blog-ai.jpg";
 import blogMigration from "@/assets/blog-migration.jpg";
