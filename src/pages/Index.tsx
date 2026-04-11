@@ -100,14 +100,11 @@ const Index = () => (
         </div>
         <div className="mt-16 grid gap-8 md:grid-cols-3">
           {[
-            { title: "Build", num: "01", text: "Founder mindset, systems, decisions, and AI leverage to build smarter businesses and stronger positioning." },
-            { title: "Move", num: "02", text: "Career choices, migration, reverse migration, and cross-border opportunities across India, Canada, and beyond." },
-            { title: "Grow", num: "03", text: "Wealth-building through business, real estate, and personal growth for long-term freedom and optionality." },
+            { title: "Build", text: "Founder mindset, systems, decisions, and AI leverage to build smarter businesses and stronger positioning." },
+            { title: "Move", text: "Career choices, migration, reverse migration, and cross-border opportunities across India, Canada, and beyond." },
+            { title: "Grow", text: "Wealth-building through business, real estate, and personal growth for long-term freedom and optionality." },
           ].map((p, i) => (
             <Card3D key={p.title} className={`card-glow rounded-2xl p-8 md:p-10 text-center reveal delay-${i + 1} group`}>
-              <div className="absolute -top-4 -right-2 font-display text-[7rem] font-bold leading-none text-foreground/[0.03] group-hover:text-gold/[0.06] transition-colors duration-700 select-none pointer-events-none">
-                {p.num}
-              </div>
               <div className="h-px w-12 bg-gold/60 group-hover:w-20 transition-all duration-500 mb-6 mx-auto" />
               <h3 className="font-display text-3xl font-bold tracking-tight">
                 <span className="text-gradient-gold">{p.title}</span>
