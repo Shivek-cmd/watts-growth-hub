@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import Section from "@/components/SectionWrapper";
 import NewsletterBlock from "@/components/NewsletterBlock";
+import Card3D from "@/components/Card3D";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
