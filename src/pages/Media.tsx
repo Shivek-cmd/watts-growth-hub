@@ -83,24 +83,26 @@ const Media = () => (
       </div>
     </Section>
 
-    <Section className="bg-[hsl(var(--surface-secondary))]">
-      <div className="reveal">
+    <Section className="bg-[hsl(var(--surface-secondary))] overflow-hidden">
+      <div className="reveal text-center max-w-3xl mx-auto">
         <p className="section-label">Episodes</p>
         <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Featured Episodes</h2>
         <p className="mt-4 text-muted-foreground">Episodes coming soon. Stay tuned.</p>
       </div>
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className={`rounded-lg overflow-hidden border border-[hsl(var(--border))] reveal-scale delay-${i} card-hover gradient-border`}>
-            <div className="aspect-video bg-[hsl(var(--surface-tertiary))] flex items-center justify-center relative group cursor-pointer">
-              <Play size={36} className="text-muted-foreground/20 group-hover:text-gold/40 transition-colors duration-300 group-hover:scale-110 transition-transform" />
+      <div className="mt-12 overflow-hidden">
+        <div className="flex gap-6 w-max animate-[marquee-scroll_25s_linear_infinite] hover:[animation-play-state:paused]">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="w-[340px] shrink-0 rounded-2xl overflow-hidden border border-[hsl(var(--border))] bg-[hsl(var(--background))] group cursor-pointer">
+              <div className="aspect-video bg-[hsl(var(--surface-tertiary))] flex items-center justify-center relative">
+                <Play size={36} className="text-muted-foreground/20 group-hover:text-gold/60 transition-all duration-300 group-hover:scale-125" />
+              </div>
+              <div className="p-6">
+                <h3 className="font-display font-semibold group-hover:text-gold transition-colors duration-300">Episode {i + 1} — Coming Soon</h3>
+                <p className="mt-2 text-xs text-muted-foreground">Stay tuned for new episodes of Real with Ritesh.</p>
+              </div>
             </div>
-            <div className="p-6">
-              <h3 className="font-display font-semibold">Episode Coming Soon</h3>
-              <p className="mt-2 text-xs text-muted-foreground">Stay tuned for new episodes.</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </Section>
   </Layout>

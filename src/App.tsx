@@ -10,6 +10,7 @@ import Media from "./pages/Media.tsx";
 import InviteRitesh from "./pages/InviteRitesh.tsx";
 import ApplyGuest from "./pages/ApplyGuest.tsx";
 import Blog from "./pages/Blog.tsx";
+import BlogPost from "./pages/BlogPost.tsx";
 import BrandsVentures from "./pages/BrandsVentures.tsx";
 import Contact from "./pages/Contact.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/media/invite" element={<InviteRitesh />} />
           <Route path="/media/apply" element={<ApplyGuest />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/brands-ventures" element={<BrandsVentures />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
