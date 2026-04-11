@@ -267,7 +267,7 @@ const Index = () => (
       </div>
     </section>
 
-    {/* ============ SPEAKING PREVIEW — Left-aligned with bleed image ============ */}
+    {/* ============ SPEAKING PREVIEW — Premium layout with image + topic cards ============ */}
     <section
       className="relative overflow-hidden bg-[hsl(var(--surface-secondary))]"
       style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}
@@ -279,21 +279,75 @@ const Index = () => (
             "repeating-linear-gradient(135deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)",
         }}
       />
-      <div className="ambient-glow w-[500px] h-[500px] bg-gold/5 -bottom-40 -right-20" />
+      <div className="ambient-glow w-[600px] h-[600px] bg-gold/8 -bottom-40 -right-20" />
+      <div className="ambient-glow w-[400px] h-[400px] bg-primary/5 -top-20 -left-20" />
       <div className="container relative z-10">
-        <div className="max-w-xl reveal-left">
-          <p className="section-label">Speaking</p>
-          <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Book Ritesh to Speak</h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed">
-            Ritesh speaks on AI for business, founder mindset and decision-making, personal branding and business
-            systems, and India–Canada cross-border opportunity. His sessions are practical, rooted in real execution,
-            and designed to leave audiences with frameworks they can apply immediately.
-          </p>
-          <Button variant="hero" size="lg" asChild className="mt-8 btn-magnetic">
-            <Link to="/speaking">
-              View Speaking Topics <ArrowRight size={15} className="ml-1.5" />
-            </Link>
-          </Button>
+        {/* Header row */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <div className="reveal-left">
+            <p className="section-label">Speaking</p>
+            <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">
+              Book Ritesh to <span className="text-shimmer">Speak</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed max-w-lg">
+              Practical, energizing talks on AI, founder mindset, business systems, and strategic growth for ambitious audiences.
+            </p>
+          </div>
+          <div className="reveal-right">
+            <Button variant="hero" size="lg" asChild className="btn-magnetic">
+              <Link to="/speaking">
+                View Speaking Topics <ArrowRight size={15} className="ml-1.5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+
+        {/* Content grid: image left + topic cards right */}
+        <div className="grid gap-10 lg:grid-cols-5">
+          {/* Speaking image */}
+          <div className="lg:col-span-2 reveal-left delay-1">
+            <div className="relative rounded-2xl overflow-hidden aspect-[3/4] group">
+              <img
+                src={speakingImg}
+                alt="Ritesh Watts speaking on stage"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-60" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="text-gold text-xs font-medium tracking-wider uppercase">Keynotes · Panels · Fireside Chats</p>
+                <p className="mt-2 text-sm text-muted-foreground">Workshops · Webinars · Podcast Interviews</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Topic cards */}
+          <div className="lg:col-span-3 space-y-0">
+            {[
+              { title: "AI for Business Growth", desc: "How founders and teams can use AI for leverage, speed, and competitive advantage." },
+              { title: "Founder Mindset", desc: "How to think, decide, and operate like a modern entrepreneur." },
+              { title: "Personal Brand as a Business Asset", desc: "How content and credibility compound into long-term opportunity." },
+              { title: "India–Canada Cross-Border", desc: "Strategic insights for those navigating growth across both ecosystems." },
+              { title: "Building Systems That Scale", desc: "The systems, routines, and decisions that create sustainable growth." },
+            ].map((topic, i) => (
+              <div
+                key={topic.title}
+                className={`card-glow border-b border-[hsl(var(--border))] p-6 md:p-8 reveal delay-${Math.min(i + 1, 5)} group cursor-default`}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="font-display text-lg font-semibold group-hover:text-gold transition-colors duration-300">
+                      {topic.title}
+                    </h3>
+                    <div className="card-reveal-content">
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{topic.desc}</p>
+                    </div>
+                  </div>
+                  <ArrowRight size={16} className="mt-1 text-muted-foreground/40 group-hover:text-gold group-hover:translate-x-1 transition-all duration-300 shrink-0" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
