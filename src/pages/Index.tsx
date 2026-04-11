@@ -192,31 +192,26 @@ const Index = () => (
       </div>
     </section>
 
-    {/* ============ MEDIA PREVIEW — Contrast section ============ */}
-    <section className="relative overflow-hidden bg-[hsl(var(--surface-secondary))]" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
-      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.08) 60px, rgba(255,255,255,0.08) 61px)" }} />
+    {/* ============ MEDIA PREVIEW — Center-aligned with floating cards ============ */}
+    <section className="relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
+      <div className="parallax-bg parallax-medium">
+        <img src={podcastImg} alt="" loading="lazy" width={1920} height={1080} className="opacity-20" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-[hsl(var(--background)/0.7)] to-[hsl(var(--background))]" />
       <div className="container relative z-10">
-        <div className="grid gap-12 md:grid-cols-2 items-center">
-          <div className="reveal-left">
-            <p className="section-label">Podcast & Media</p>
-            <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Real with Ritesh</h2>
-            <p className="mt-6 text-muted-foreground leading-relaxed">
-              Conversations, clips, and stories at the intersection of business, opportunity, growth, and modern founder life.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button variant="hero" size="lg" asChild className="btn-magnetic">
-                <Link to="/media">Watch / Listen</Link>
-              </Button>
-              <Button variant="hero-outline" size="lg" asChild className="btn-magnetic">
-                <Link to="/media/invite">Invite Ritesh</Link>
-              </Button>
-            </div>
-          </div>
-          <div className="reveal-right delay-2">
-            <div className="relative rounded-2xl overflow-hidden aspect-video">
-              <img src={podcastImg} alt="Real with Ritesh podcast" loading="lazy" width={640} height={360} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background)/0.5)] to-transparent" />
-            </div>
+        <div className="max-w-3xl mx-auto text-center reveal-scale">
+          <p className="section-label">Podcast & Media</p>
+          <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Real with Ritesh</h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed mx-auto" style={{ maxWidth: "60ch" }}>
+            Conversations, clips, and stories at the intersection of business, opportunity, growth, and modern founder life.
+          </p>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Button variant="gold" size="lg" asChild className="btn-magnetic">
+              <Link to="/media">Watch / Listen</Link>
+            </Button>
+            <Button variant="hero-outline" size="lg" asChild className="btn-magnetic">
+              <Link to="/media/invite">Invite Ritesh to Your Podcast</Link>
+            </Button>
           </div>
         </div>
       </div>
@@ -231,7 +226,7 @@ const Index = () => (
       </div>
       <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {blogPosts.map((post, i) => (
-          <Link key={post.title} to="/blog" className={`group reveal delay-${i + 1} block card-glow p-0 overflow-hidden`}>
+          <Link key={post.title} to="/blog" className={`group reveal delay-${i + 1} block card-glow rounded-2xl p-0 overflow-hidden`}>
             <div className="blog-card-img aspect-[16/9] overflow-hidden">
               <img src={post.image} alt={post.title} loading="lazy" width={640} height={360} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
@@ -276,7 +271,7 @@ const Index = () => (
             { title: "Explore Media", text: "Real with Ritesh — conversations and clips.", cta: "Explore Media", href: "/media" },
             { title: "Read the Blog", text: "Weekly ideas and frameworks.", cta: "Read the Blog", href: "/blog" },
           ].map((card, i) => (
-            <Card3D key={card.title} className={`card-glow p-8 text-center reveal delay-${i + 1} group`}>
+            <Card3D key={card.title} className={`card-glow rounded-2xl p-8 text-center reveal delay-${i + 1} group`}>
               <h3 className="font-display text-lg font-semibold group-hover:text-gold transition-colors duration-300">{card.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{card.text}</p>
               <Button variant="hero" size="sm" asChild className="mt-6 btn-magnetic">
