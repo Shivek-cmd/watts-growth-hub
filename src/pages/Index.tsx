@@ -108,7 +108,7 @@ const Index = () => (
               <div className="absolute -top-6 -right-2 font-display text-[8rem] font-bold leading-none text-foreground/[0.03] group-hover:text-gold/[0.08] transition-colors duration-700 select-none pointer-events-none">
                 {p.num}
               </div>
-              <div className="relative z-10 p-8 md:p-10 rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] hover:border-gold/40 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_20px_60px_-20px_rgba(199,165,93,0.15)]">
+              <div className="relative z-10 h-full p-8 md:p-10 rounded-2xl border border-[hsl(var(--border))] bg-[hsl(var(--background))] hover:border-gold/40 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_20px_60px_-20px_rgba(199,165,93,0.15)]">
                 <div className="h-px w-12 bg-gold/60 group-hover:w-20 transition-all duration-500 mb-6" />
                 <h3 className="font-display text-3xl font-bold tracking-tight">
                   <span className="text-gradient-gold">{p.title}</span>
