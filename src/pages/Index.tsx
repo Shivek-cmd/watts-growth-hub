@@ -52,7 +52,7 @@ const Index = () => (
 
       <div className="container relative z-10">
         <div className="max-w-2xl">
-          <p className="section-label reveal">Author · Entrepreneur · Investor · Speaker</p>
+          <p className="section-label reveal">Author <span className="dot-blink">·</span> Entrepreneur <span className="dot-blink">·</span> Investor <span className="dot-blink">·</span> Speaker</p>
           <h1 className="mt-6 font-display text-hero font-bold tracking-tight leading-[1.05] reveal delay-1">
             Ritesh{" "}<span className="text-shimmer">Watts</span>
           </h1>
