@@ -25,9 +25,8 @@ const Index = () => (
       {/* Hero image — full bleed on right, blending into background */}
       <div className="hidden lg:block absolute inset-y-0 right-0 w-[55%]" style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}>
         <img src={heroImg} alt="Ritesh Watts — Author, Entrepreneur, Investor, and Speaker" width={960} height={1080} className="w-full h-full object-cover object-top" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-[hsl(var(--background)/0.6)] to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-[hsl(var(--background)/0.3)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-[hsl(var(--background)/0.35)] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-40" />
       </div>
 
       <div className="ambient-glow w-[600px] h-[600px] bg-primary/10 -top-40 -left-40" />
