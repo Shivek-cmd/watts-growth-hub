@@ -97,7 +97,6 @@ const Media = () => (
         ))}
       </div>
     </Section>
-    </Section>
 
     <Section>
       <div className="reveal">
