@@ -11,12 +11,12 @@ import blogWealth from "@/assets/blog-wealth.jpg";
 const pillars = ["All", "Build", "Move", "Grow"] as const;
 
 const samplePosts = [
-  { title: "Why AI Is the Founder's Best Leverage Tool", excerpt: "Practical ways founders can use AI to move faster, decide better, and build smarter systems.", pillar: "Build" as const, image: blogAi },
-  { title: "Reverse Migration: When Going Back Becomes Going Forward", excerpt: "Strategic thinking about when and how to move back — and how to make it work.", pillar: "Move" as const, image: blogMigration },
-  { title: "Building Wealth Through Business, Not Just Savings", excerpt: "Why business ownership remains the most powerful wealth-building vehicle for ambitious people.", pillar: "Grow" as const, image: blogWealth },
-  { title: "The Systems Behind Every Scalable Business", excerpt: "How to move from hustle to structure with repeatable, compounding systems.", pillar: "Build" as const, image: blogAi },
-  { title: "Cross-Border Opportunity: India and Canada in 2025", excerpt: "What the corridor between India and Canada looks like for founders, investors, and professionals.", pillar: "Move" as const, image: blogMigration },
-  { title: "Real Estate as a Wealth Pillar for Entrepreneurs", excerpt: "How to think about real estate alongside your business for long-term optionality.", pillar: "Grow" as const, image: blogWealth },
+  { slug: "why-ai-is-the-founders-best-leverage-tool", title: "Why AI Is the Founder's Best Leverage Tool", excerpt: "Practical ways founders can use AI to move faster, decide better, and build smarter systems.", pillar: "Build" as const, image: blogAi },
+  { slug: "reverse-migration-when-going-back-becomes-going-forward", title: "Reverse Migration: When Going Back Becomes Going Forward", excerpt: "Strategic thinking about when and how to move back — and how to make it work.", pillar: "Move" as const, image: blogMigration },
+  { slug: "building-wealth-through-business-not-just-savings", title: "Building Wealth Through Business, Not Just Savings", excerpt: "Why business ownership remains the most powerful wealth-building vehicle for ambitious people.", pillar: "Grow" as const, image: blogWealth },
+  { slug: "the-systems-behind-every-scalable-business", title: "The Systems Behind Every Scalable Business", excerpt: "How to move from hustle to structure with repeatable, compounding systems.", pillar: "Build" as const, image: blogAi },
+  { slug: "cross-border-opportunity-india-and-canada-in-2025", title: "Cross-Border Opportunity: India and Canada in 2025", excerpt: "What the corridor between India and Canada looks like for founders, investors, and professionals.", pillar: "Move" as const, image: blogMigration },
+  { slug: "real-estate-as-a-wealth-pillar-for-entrepreneurs", title: "Real Estate as a Wealth Pillar for Entrepreneurs", excerpt: "How to think about real estate alongside your business for long-term optionality.", pillar: "Grow" as const, image: blogWealth },
 ];
 
 const Blog = () => {
@@ -64,7 +64,7 @@ const Blog = () => {
 
         <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((post, i) => (
-            <div key={post.title} className={`reveal delay-${Math.min(i + 1, 5)} group cursor-pointer card-glow p-0 overflow-hidden`}>
+            <Link key={post.slug} to={`/blog/${post.slug}`} className={`reveal delay-${Math.min(i + 1, 5)} group cursor-pointer card-glow rounded-2xl p-0 overflow-hidden block`}>
               <div className="aspect-[16/9] overflow-hidden">
                 <img
                   src={post.image}
@@ -79,11 +79,11 @@ const Blog = () => {
                 <p className="text-xs font-semibold uppercase tracking-widest text-gold">{post.pillar}</p>
                 <h3 className="mt-2 font-display text-lg font-semibold leading-tight group-hover:text-gold transition-colors duration-300">{post.title}</h3>
                 <p className="mt-3 text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
-                <button className="mt-4 text-sm font-medium text-foreground group-hover:text-gold transition-colors flex items-center gap-1.5 link-underline">
+                <span className="mt-4 text-sm font-medium text-foreground group-hover:text-gold transition-colors flex items-center gap-1.5 link-underline">
                   Read More <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
-                </button>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </Section>
