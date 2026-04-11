@@ -53,7 +53,7 @@ const About = () => (
     {/* Journey */}
     <section className="relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
       {/* Full-bleed image on the right */}
-      <div className="hidden lg:block absolute inset-y-0 right-0 w-[50%]" style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}>
+      <div className="hidden lg:block absolute inset-y-0 right-0 w-[40%]" style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}>
         <img src={riteshCollage} alt="Ritesh Watts — speaking, events, book launch, and community impact" width={840} height={560} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-[hsl(var(--background)/0.35)] to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-40" />
