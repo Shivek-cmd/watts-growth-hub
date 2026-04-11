@@ -46,7 +46,7 @@ const Header = () => {
             <Link
               key={item.href}
               to={item.href}
-              className={`text-sm font-medium transition-colors duration-200 ${
+              className={`text-sm font-medium transition-colors duration-200 link-underline ${
                 location.pathname === item.href
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
