@@ -9,13 +9,12 @@ const Layout = ({ children }: { children: ReactNode }) => {
   useParallaxScroll();
   const { pathname } = useLocation();
 
-  // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
   return (
-    <div className="grain min-h-screen flex flex-col page-transition">
+    <div className="grain min-h-screen flex flex-col page-transition" key={pathname}>
       <Header />
       <main className="flex-1 pt-20">{children}</main>
       <Footer />
