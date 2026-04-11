@@ -51,9 +51,15 @@ const About = () => (
     </section>
 
     {/* Journey */}
-    <Section>
-      <div className="grid gap-12 lg:grid-cols-[1fr_auto] items-center">
-        <div className="reveal-left">
+    <section className="relative overflow-hidden" style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}>
+      {/* Full-bleed image on the right */}
+      <div className="hidden lg:block absolute inset-y-0 right-0 w-[50%]" style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}>
+        <img src={riteshCollage} alt="Ritesh Watts — speaking, events, book launch, and community impact" width={840} height={560} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--background))] via-[hsl(var(--background)/0.35)] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-40" />
+      </div>
+      <div className="container relative z-10">
+        <div className="max-w-2xl reveal-left">
           <p className="section-label">The Journey</p>
           <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">The Journey</h2>
           <div className="mt-8 space-y-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
@@ -63,14 +69,8 @@ const About = () => (
             <p>Through his companies, media, and consulting work, Ritesh operates in founder, advisor, strategist, and investor roles — building a long-term platform that connects services, ideas, relationships, and audience trust.</p>
           </div>
         </div>
-        <div className="hidden lg:block reveal-right delay-2">
-          <div className="relative w-[420px] rounded-2xl overflow-hidden" data-parallax="-0.04">
-            <img src={riteshCollage} alt="Ritesh Watts — speaking, events, book launch, and community impact" width={840} height={560} className="w-full h-auto object-cover" style={{ animation: "img-scale-in 1.2s var(--ease-out) both" }} />
-            <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-40" />
-          </div>
-        </div>
       </div>
-    </Section>
+    </section>
 
     {/* Beliefs */}
     <Section className="bg-[hsl(var(--surface-secondary))]">
