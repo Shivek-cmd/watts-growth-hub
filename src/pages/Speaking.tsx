@@ -86,9 +86,11 @@ const Speaking = () => {
         </div>
         <div className="mt-16 space-y-0 border-t border-[hsl(var(--border))]">
           {topics.map((t, i) => (
-            <div key={t.title} className={`border-b border-[hsl(var(--border))] py-10 reveal delay-${Math.min(i + 1, 5)} group`}>
+            <div key={t.title} className={`card-glow border-b border-[hsl(var(--border))] p-8 md:p-10 reveal delay-${Math.min(i + 1, 5)} group`}>
               <h3 className="font-display text-xl font-semibold group-hover:text-gold transition-colors duration-300">{t.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xl">{t.text}</p>
+              <div className="card-reveal-content">
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xl">{t.text}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -101,7 +103,7 @@ const Speaking = () => {
             <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Event Formats</h2>
             <div className="mt-8 flex flex-wrap gap-3">
               {formats.map((f) => (
-                <span key={f} className="rounded-full border border-[hsl(var(--border-hover))] px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:border-gold/30 transition-all duration-300">{f}</span>
+                <span key={f} className="card-glow rounded-full px-5 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-all duration-300 cursor-default">{f}</span>
               ))}
             </div>
           </div>
