@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
-import SectionWrapper from "@/components/SectionWrapper";
+import Section from "@/components/SectionWrapper";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,10 +11,10 @@ import { toast } from "sonner";
 import { ArrowRight, Check } from "lucide-react";
 
 const pathways = [
-  { title: "Book Ritesh to Speak", text: "For conferences, trainings, panels, colleges, universities, media events, and communities.", cta: "Go to Speaking Page", href: "/speaking" },
-  { title: "Work With Ritesh", text: "For consulting, strategic input, brand thinking, and founder advisory.", cta: "Fill the Form Below", href: "#work-form" },
-  { title: "Invite Ritesh to Your Podcast", text: "For interviews, panels, show appearances, and content collaborations.", cta: "Invite Ritesh", href: "/media/invite" },
-  { title: "Apply as Guest", text: "For those who want to appear on Real with Ritesh.", cta: "Apply as Guest", href: "/media/apply" },
+  { title: "Book Ritesh to Speak", text: "For conferences, trainings, panels, colleges, universities, media events, and communities.", href: "/speaking" },
+  { title: "Work With Ritesh", text: "For consulting, strategic input, brand thinking, and founder advisory.", href: "#work-form" },
+  { title: "Invite Ritesh to Your Podcast", text: "For interviews, panels, show appearances, and content collaborations.", href: "/media/invite" },
+  { title: "Apply as Guest", text: "For those who want to appear on Real with Ritesh.", href: "/media/apply" },
 ];
 
 const Contact = () => {
@@ -23,79 +23,92 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    toast.success("Thank you for reaching out. Our team will review your request and get back to you.");
+    toast.success("Thank you for reaching out.");
   };
 
   return (
     <Layout>
-      <section className="bg-gradient-hero">
-        <div className="container py-24 md:py-32">
-          <div className="max-w-3xl animate-fade-in">
-            <h1 className="text-4xl font-black tracking-tight md:text-6xl">Contact Ritesh <span className="text-gradient-gold">Watts</span></h1>
-            <p className="mt-6 text-lg text-muted-foreground">For speaking, consulting, media, strategic opportunities, and meaningful conversations.</p>
-          </div>
+      <section className="relative flex items-end min-h-[50vh] overflow-hidden">
+        <div className="ambient-glow w-[400px] h-[400px] bg-primary/10 -top-20 -right-20" />
+        <div className="container relative z-10 pb-16">
+          <p className="section-label reveal">Contact</p>
+          <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
+            Contact Ritesh <span className="text-gradient-gold">Watts</span>
+          </h1>
+          <p className="mt-6 text-lg text-muted-foreground max-w-2xl reveal delay-2">
+            For speaking, consulting, media, strategic opportunities, and meaningful conversations.
+          </p>
         </div>
       </section>
 
-      <SectionWrapper>
-        <h2 className="text-3xl font-bold md:text-4xl">Contact Pathways</h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {pathways.map((p) => (
-            <div key={p.title} className="rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30">
-              <h3 className="text-lg font-bold">{p.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.text}</p>
+      <Section>
+        <div className="reveal">
+          <p className="section-label">Pathways</p>
+          <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Contact Pathways</h2>
+        </div>
+        {/* Open space, line-separated */}
+        <div className="mt-16 border-t border-[hsl(var(--border))]">
+          {pathways.map((p, i) => (
+            <div key={p.title} className={`border-b border-[hsl(var(--border))] py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 reveal delay-${Math.min(i + 1, 5)}`}>
+              <div>
+                <h3 className="font-display text-lg font-semibold">{p.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{p.text}</p>
+              </div>
               {p.href.startsWith("#") ? (
-                <Button variant="link" asChild className="mt-4 h-auto p-0 text-primary text-sm">
-                  <a href={p.href}>{p.cta} <ArrowRight size={14} className="ml-1" /></a>
-                </Button>
+                <a href={p.href} className="text-sm font-medium text-foreground hover:text-gold transition-colors flex items-center gap-1.5 group shrink-0">
+                  Go <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                </a>
               ) : (
-                <Button variant="link" asChild className="mt-4 h-auto p-0 text-primary text-sm">
-                  <Link to={p.href}>{p.cta} <ArrowRight size={14} className="ml-1" /></Link>
-                </Button>
+                <Link to={p.href} className="text-sm font-medium text-foreground hover:text-gold transition-colors flex items-center gap-1.5 group shrink-0">
+                  Go <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                </Link>
               )}
             </div>
           ))}
         </div>
-      </SectionWrapper>
+      </Section>
 
-      <SectionWrapper id="work-form" className="bg-gradient-section">
-        <h2 className="text-3xl font-bold md:text-4xl">Work With <span className="text-gradient-gold">Ritesh</span></h2>
-        <p className="mt-3 text-muted-foreground max-w-2xl">For strategic consulting, advisory, and selective projects. Please share a few details so the team can review your request.</p>
+      <Section id="work-form" className="bg-[hsl(var(--surface-secondary))]">
+        <div className="max-w-2xl reveal">
+          <p className="section-label">Consulting</p>
+          <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Work With Ritesh</h2>
+          <p className="mt-4 text-muted-foreground">For strategic consulting, advisory, and selective projects.</p>
 
-        {submitted ? (
-          <div className="mt-8 rounded-xl border border-primary/30 bg-card p-8 text-center glow-primary max-w-xl">
-            <Check size={48} className="mx-auto text-primary" />
-            <p className="mt-4 text-lg font-semibold">Thank you for reaching out.</p>
-            <p className="mt-2 text-muted-foreground">Our team will review your request and get back to you.</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="mt-8 max-w-2xl space-y-5">
-            <div className="grid gap-5 sm:grid-cols-2">
-              <div><Label>Full Name *</Label><Input required className="mt-1.5 bg-muted border-border" /></div>
-              <div><Label>Company / Organization</Label><Input className="mt-1.5 bg-muted border-border" /></div>
-              <div><Label>Email *</Label><Input type="email" required className="mt-1.5 bg-muted border-border" /></div>
-              <div><Label>Phone / WhatsApp</Label><Input className="mt-1.5 bg-muted border-border" /></div>
+          {submitted ? (
+            <div className="mt-12 py-12 text-center">
+              <Check size={40} className="mx-auto text-primary" />
+              <p className="mt-4 font-display text-xl font-semibold">Thank you for reaching out.</p>
+              <p className="mt-2 text-sm text-muted-foreground">Our team will review your request and get back to you.</p>
             </div>
-            <div><Label>Website / LinkedIn</Label><Input className="mt-1.5 bg-muted border-border" /></div>
-            <div><Label>What do you want help with? *</Label><Textarea required className="mt-1.5 bg-muted border-border" rows={3} /></div>
-            <div><Label>Current business / stage</Label><Textarea className="mt-1.5 bg-muted border-border" rows={2} /></div>
-            <div><Label>Why do you want to work with Ritesh? *</Label><Textarea required className="mt-1.5 bg-muted border-border" rows={3} /></div>
-            <div><Label>Budget / engagement level</Label><Input className="mt-1.5 bg-muted border-border" /></div>
-            <div><Label>Additional notes</Label><Textarea className="mt-1.5 bg-muted border-border" rows={3} /></div>
-            <Button type="submit" variant="hero" size="lg">Submit</Button>
-          </form>
-        )}
-      </SectionWrapper>
+          ) : (
+            <form onSubmit={handleSubmit} className="mt-10 space-y-6">
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div><Label className="text-xs text-muted-foreground">Full Name *</Label><Input required className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
+                <div><Label className="text-xs text-muted-foreground">Company / Organization</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
+                <div><Label className="text-xs text-muted-foreground">Email *</Label><Input type="email" required className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
+                <div><Label className="text-xs text-muted-foreground">Phone / WhatsApp</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
+              </div>
+              <div><Label className="text-xs text-muted-foreground">Website / LinkedIn</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
+              <div><Label className="text-xs text-muted-foreground">What do you want help with? *</Label><Textarea required className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))]" rows={3} /></div>
+              <div><Label className="text-xs text-muted-foreground">Current business / stage</Label><Textarea className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))]" rows={2} /></div>
+              <div><Label className="text-xs text-muted-foreground">Why do you want to work with Ritesh? *</Label><Textarea required className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))]" rows={3} /></div>
+              <div><Label className="text-xs text-muted-foreground">Budget / engagement level</Label><Input className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))] h-12" /></div>
+              <div><Label className="text-xs text-muted-foreground">Additional notes</Label><Textarea className="mt-2 bg-[hsl(var(--surface-tertiary))] border-[hsl(var(--border))]" rows={3} /></div>
+              <Button type="submit" variant="hero" size="lg">Submit</Button>
+            </form>
+          )}
+        </div>
+      </Section>
 
-      <SectionWrapper>
-        <div className="mx-auto max-w-xl text-center">
-          <h2 className="text-2xl font-bold">Stay in the Loop</h2>
+      <Section>
+        <div className="max-w-xl mx-auto text-center reveal">
+          <h2 className="font-display text-h2 font-semibold tracking-tight">Stay in the Loop</h2>
           <p className="mt-3 text-muted-foreground text-sm">Subscribe to The Ritesh Watts Letter for weekly ideas on building, moving, and growing.</p>
-          <div className="mt-6">
+          <div className="mt-8">
             <NewsletterBlock compact />
           </div>
         </div>
-      </SectionWrapper>
+      </Section>
     </Layout>
   );
 };

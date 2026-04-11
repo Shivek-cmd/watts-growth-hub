@@ -1,13 +1,12 @@
 import Layout from "@/components/Layout";
-import SectionWrapper from "@/components/SectionWrapper";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Award, Check } from "lucide-react";
+import Section from "@/components/SectionWrapper";
+import { ArrowRight, Award, ExternalLink } from "lucide-react";
 
 const companies = [
-  { title: "Watts Group", text: "A broader business platform supporting growth, strategic development, and long-term opportunity creation across consulting, technology, marketing, jobs, and training.", cta: "Visit Watts Group" },
-  { title: "Watts Immigration", text: "A licensed immigration-focused offering built around trusted guidance, professional RCIC expertise, and practical client outcomes.", cta: "Visit Watts Immigration" },
-  { title: "Aifyze", text: "An AI-driven growth and leverage platform focused on helping businesses move faster and work smarter through automation and modern digital execution.", cta: "Visit Aifyze" },
-  { title: "Watts Technologies", text: "A specialized AI division focused on enabling practical AI adoption and deployment across industries including healthcare, finance, manufacturing, and education.", cta: "Visit Watts Technologies" },
+  { title: "Watts Group", text: "A broader business platform supporting growth, strategic development, and long-term opportunity creation across consulting, technology, marketing, jobs, and training." },
+  { title: "Watts Immigration", text: "A licensed immigration-focused offering built around trusted guidance, professional RCIC expertise, and practical client outcomes." },
+  { title: "Aifyze", text: "An AI-driven growth and leverage platform focused on helping businesses move faster and work smarter through automation and modern digital execution." },
+  { title: "Watts Technologies", text: "A specialized AI division focused on enabling practical AI adoption and deployment across industries including healthcare, finance, manufacturing, and education." },
 ];
 
 const achievements = [
@@ -29,77 +28,86 @@ const asSeenIn = [
 
 const BrandsVentures = () => (
   <Layout>
-    <section className="bg-gradient-hero">
-      <div className="container py-24 md:py-32">
-        <div className="max-w-3xl animate-fade-in">
-          <h1 className="text-4xl font-black tracking-tight md:text-6xl">Brands & <span className="text-gradient-gold">Ventures</span></h1>
-          <p className="mt-4 text-lg text-muted-foreground">A founder-led network of businesses, ventures, partnerships, and strategic platforms.</p>
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            Ritesh Watts operates through a broader business ecosystem that connects professional services, immigration expertise, growth strategy, AI leverage, and media-led authority.
-          </p>
-        </div>
+    <section className="relative flex items-end min-h-[50vh] overflow-hidden">
+      <div className="ambient-glow w-[500px] h-[500px] bg-gold/5 -top-20 -left-20" />
+      <div className="container relative z-10 pb-16">
+        <p className="section-label reveal">Portfolio</p>
+        <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
+          Brands & <span className="text-gradient-gold">Ventures</span>
+        </h1>
+        <p className="mt-6 text-lg text-muted-foreground max-w-2xl reveal delay-2">
+          A founder-led network of businesses, ventures, partnerships, and strategic platforms.
+        </p>
       </div>
     </section>
 
-    <SectionWrapper>
-      <h2 className="text-3xl font-bold md:text-4xl">Companies Ritesh Owns</h2>
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
-        {companies.map((c) => (
-          <div key={c.title} className="rounded-xl border border-border bg-card p-8 transition-all hover:border-primary/30">
-            <h3 className="text-xl font-bold">{c.title}</h3>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.text}</p>
-            <Button variant="link" className="mt-4 h-auto p-0 text-primary text-sm">
-              {c.cta} <ExternalLink size={14} className="ml-1" />
-            </Button>
+    <Section>
+      <div className="reveal">
+        <p className="section-label">Companies</p>
+        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Companies Ritesh Owns</h2>
+      </div>
+      {/* Open space — no cards, just lines */}
+      <div className="mt-16 border-t border-[hsl(var(--border))]">
+        {companies.map((c, i) => (
+          <div key={c.title} className={`border-b border-[hsl(var(--border))] py-10 md:py-12 reveal delay-${Math.min(i + 1, 5)}`}>
+            <h3 className="font-display text-xl font-semibold">{c.title}</h3>
+            <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-xl">{c.text}</p>
+            <button className="mt-4 text-sm font-medium text-foreground hover:text-gold transition-colors flex items-center gap-1.5 group">
+              Visit {c.title} <ExternalLink size={13} className="transition-transform group-hover:translate-x-0.5" />
+            </button>
           </div>
         ))}
       </div>
-    </SectionWrapper>
+    </Section>
 
-    <SectionWrapper className="bg-gradient-section">
-      <h2 className="text-3xl font-bold md:text-4xl">Brands Ritesh Works With</h2>
-      <p className="mt-4 text-muted-foreground max-w-2xl">
-        Ritesh also partners with and promotes select brands that align with his values and audience. These are brands he has vetted, uses personally, or has a formal affiliate relationship with.
-      </p>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="rounded-xl border border-border bg-card p-6 text-center">
-            <div className="h-12 w-12 mx-auto rounded-full bg-muted" />
-            <h3 className="mt-4 font-bold text-muted-foreground">Partner Brand</h3>
-            <p className="mt-1 text-xs text-muted-foreground">Coming soon</p>
-          </div>
-        ))}
+    <Section className="bg-[hsl(var(--surface-secondary))]">
+      <div className="max-w-3xl reveal">
+        <p className="section-label">Partners</p>
+        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Brands Ritesh Works With</h2>
+        <p className="mt-6 text-muted-foreground leading-relaxed" style={{ maxWidth: "72ch" }}>
+          Ritesh also partners with and promotes select brands that align with his values and audience. These are brands he has vetted, uses personally, or has a formal affiliate relationship with.
+        </p>
+        <p className="mt-6 text-sm text-muted-foreground/60 italic">Partner brands coming soon.</p>
       </div>
-    </SectionWrapper>
+    </Section>
 
-    <SectionWrapper>
-      <h2 className="text-3xl font-bold md:text-4xl">Recognition & <span className="text-gradient-gold">Achievements</span></h2>
-      <div className="mt-8 space-y-4">
-        {achievements.map((a) => (
-          <div key={a} className="flex items-center gap-3">
-            <Award size={20} className="shrink-0 text-secondary" />
-            <span className="text-muted-foreground">{a}</span>
-          </div>
-        ))}
+    <Section>
+      <div className="max-w-2xl reveal">
+        <p className="section-label">Recognition</p>
+        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Recognition & Achievements</h2>
+        <div className="mt-10 space-y-5">
+          {achievements.map((a, i) => (
+            <div key={a} className={`flex items-center gap-4 reveal delay-${Math.min(i + 1, 5)}`}>
+              <Award size={18} className="shrink-0 text-gold" />
+              <span className="text-muted-foreground">{a}</span>
+            </div>
+          ))}
+        </div>
       </div>
-    </SectionWrapper>
+    </Section>
 
-    <SectionWrapper className="bg-gradient-section">
-      <h2 className="text-3xl font-bold md:text-4xl">As Seen In</h2>
-      <div className="mt-8 flex flex-wrap gap-4">
-        {asSeenIn.map((item) => (
-          <a
-            key={item.name}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-lg border border-border bg-card px-6 py-3 text-sm font-medium text-muted-foreground transition-all hover:border-primary/30 hover:text-foreground"
-          >
-            {item.name}
-          </a>
-        ))}
+    {/* As Seen In — Marquee drift */}
+    <Section className="bg-[hsl(var(--surface-secondary))] overflow-hidden">
+      <div className="reveal">
+        <p className="section-label text-center">Press</p>
+        <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight text-center">As Seen In</h2>
       </div>
-    </SectionWrapper>
+      <div className="mt-12 overflow-hidden">
+        <div className="flex gap-16 w-max animate-[marquee-scroll_30s_linear_infinite]">
+          {[...asSeenIn, ...asSeenIn].map((item, i) => (
+            <a
+              key={`${item.name}-${i}`}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg font-display font-semibold text-muted-foreground/40 hover:text-muted-foreground transition-colors whitespace-nowrap"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </Section>
   </Layout>
 );
 
