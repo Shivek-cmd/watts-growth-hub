@@ -303,52 +303,26 @@ const Index = () => (
           </div>
         </div>
 
-        {/* Content grid: image left + topic cards right */}
-        <div className="grid gap-10 lg:grid-cols-5">
-          {/* Speaking image */}
-          <div className="lg:col-span-2 reveal-left delay-1">
-            <div className="relative rounded-2xl overflow-hidden aspect-[3/4] group">
-              <img
-                src={speakingImg}
-                alt="Ritesh Watts speaking on stage"
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-60" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="text-gold text-xs font-medium tracking-wider uppercase">Keynotes · Panels · Fireside Chats</p>
-                <p className="mt-2 text-sm text-muted-foreground">Workshops · Webinars · Podcast Interviews</p>
-              </div>
+        {/* Topic cards — full width */}
+        <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-3 border-t border-[hsl(var(--border))]">
+          {[
+            { title: "AI for Business Growth", desc: "How founders and teams can use AI for leverage, speed, and competitive advantage." },
+            { title: "Founder Mindset", desc: "How to think, decide, and operate like a modern entrepreneur." },
+            { title: "Personal Brand as a Business Asset", desc: "How content and credibility compound into long-term opportunity." },
+            { title: "India–Canada Cross-Border", desc: "Strategic insights for those navigating growth across both ecosystems." },
+            { title: "Building Systems That Scale", desc: "The systems, routines, and decisions that create sustainable growth." },
+          ].map((topic, i) => (
+            <div
+              key={topic.title}
+              className={`card-glow border-b border-r border-[hsl(var(--border))] p-8 md:p-10 reveal delay-${Math.min(i + 1, 5)} group cursor-default`}
+            >
+              <h3 className="font-display text-lg font-semibold group-hover:text-gold transition-colors duration-300">
+                {topic.title}
+              </h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{topic.desc}</p>
+              <ArrowRight size={16} className="mt-4 text-muted-foreground/30 group-hover:text-gold group-hover:translate-x-1 transition-all duration-300" />
             </div>
-          </div>
-
-          {/* Topic cards */}
-          <div className="lg:col-span-3 space-y-0">
-            {[
-              { title: "AI for Business Growth", desc: "How founders and teams can use AI for leverage, speed, and competitive advantage." },
-              { title: "Founder Mindset", desc: "How to think, decide, and operate like a modern entrepreneur." },
-              { title: "Personal Brand as a Business Asset", desc: "How content and credibility compound into long-term opportunity." },
-              { title: "India–Canada Cross-Border", desc: "Strategic insights for those navigating growth across both ecosystems." },
-              { title: "Building Systems That Scale", desc: "The systems, routines, and decisions that create sustainable growth." },
-            ].map((topic, i) => (
-              <div
-                key={topic.title}
-                className={`card-glow border-b border-[hsl(var(--border))] p-6 md:p-8 reveal delay-${Math.min(i + 1, 5)} group cursor-default`}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="font-display text-lg font-semibold group-hover:text-gold transition-colors duration-300">
-                      {topic.title}
-                    </h3>
-                    <div className="card-reveal-content">
-                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{topic.desc}</p>
-                    </div>
-                  </div>
-                  <ArrowRight size={16} className="mt-1 text-muted-foreground/40 group-hover:text-gold group-hover:translate-x-1 transition-all duration-300 shrink-0" />
-                </div>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>
