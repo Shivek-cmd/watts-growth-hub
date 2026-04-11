@@ -21,7 +21,7 @@ const blogPosts = [
 const Index = () => (
   <Layout>
     {/* ============ HERO ============ */}
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="snap-section relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Hero image — full bleed on right, blending into background */}
       <div className="hidden lg:block absolute inset-y-0 right-0 w-[55%]" style={{ animation: "img-scale-in 1.4s var(--ease-out) both" }}>
         <img src={heroImg} alt="Ritesh Watts — Author, Entrepreneur, Investor, and Speaker" width={960} height={1080} className="w-full h-full object-cover object-top" />
