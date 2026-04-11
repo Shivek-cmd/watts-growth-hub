@@ -561,6 +561,12 @@
   justify-content: center;
 }
 
+.scroll-snap-container {
+  scroll-snap-type: y proximity;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
 @media (max-width: 767px) {
   .snap-section {
     min-height: auto;

@@ -14,7 +14,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   }, [pathname]);
 
   return (
-    <div className="grain min-h-screen flex flex-col page-transition" key={pathname}>
+    <div className="grain min-h-screen flex flex-col page-transition scroll-snap-container" key={pathname}>
       <Header />
       <main className="flex-1 pt-20">{children}</main>
       <Footer />
