@@ -76,7 +76,7 @@ const Footer = () => (
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="text-muted-foreground hover:text-gold transition-colors duration-300"
+                className="flex items-center justify-center w-9 h-9 rounded-full border border-[hsl(var(--border))] text-muted-foreground hover:text-gold hover:border-gold transition-all duration-300"
               >
                 {s.icon}
               </a>
