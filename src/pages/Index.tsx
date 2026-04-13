@@ -98,41 +98,17 @@ const Index = () => (
             Ritesh <span className="text-shimmer">Watts</span>
           </h1>
 
-          <p
-            className="mt-8 text-lg leading-relaxed text-muted-foreground max-w-2xl reveal delay-2"
-            style={{ maxWidth: "72ch" }}
-          >
-            Helping ambitious people build smarter businesses, move across borders strategically, and grow long-term wealth.
+          <p className="mt-8 text-lg leading-relaxed text-muted-foreground reveal delay-2" style={{ maxWidth: "52ch" }}>
+            Practical frameworks and real stories for ambitious people building businesses, crossing borders, and growing long-term wealth.
           </p>
 
-          <p className="mt-4 text-sm text-muted-foreground/70 max-w-xl reveal delay-3">
-            Through business, AI, migration insight, media, and founder-led thinking — practical ideas, real stories, and strategic frameworks for people who grow with intention.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4 reveal delay-4">
+          <div className="mt-10 flex flex-wrap items-center gap-4 reveal delay-3">
             <Button variant="hero" size="lg" asChild className="btn-magnetic">
               <Link to="/speaking">Book Ritesh to Speak</Link>
             </Button>
             <Button variant="hero-outline" size="lg" asChild className="btn-magnetic">
               <Link to="/contact">Work With Ritesh</Link>
             </Button>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-6 reveal delay-5">
-            {[
-              { label: "Explore Media", href: "/media" },
-              { label: "Read the Blog", href: "/blog" },
-              { label: "Subscribe to Newsletter", href: "/#newsletter" },
-            ].map((link) => (
-              <Link
-                key={link.label}
-                to={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 group link-underline"
-              >
-                {link.label}
-                <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            ))}
           </div>
 
         </div>
