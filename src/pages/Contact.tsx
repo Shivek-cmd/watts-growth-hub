@@ -9,6 +9,7 @@ import NewsletterBlock from "@/components/NewsletterBlock";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { ArrowRight, Check } from "lucide-react";
+import bgAbout from "@/assets/bg-about.jpg";
 
 const pathways = [
   { title: "Book Ritesh to Speak", text: "For conferences, trainings, panels, colleges, universities, media events, and communities.", href: "/speaking" },
@@ -29,6 +30,10 @@ const Contact = () => {
   return (
     <Layout>
       <section className="relative flex items-end min-h-[50vh] overflow-hidden">
+        <div className="parallax-bg">
+          <img src={bgAbout} alt="" width={1920} height={1080} className="opacity-15" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-[hsl(var(--background)/0.7)] to-transparent" />
         <div className="ambient-glow w-[400px] h-[400px] bg-primary/10 -top-20 -right-20" />
         <div className="container relative z-10 pb-16">
           <p className="section-label reveal mt-6 sm:mt-0">Contact</p>

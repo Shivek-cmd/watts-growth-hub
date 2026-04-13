@@ -43,11 +43,11 @@ const Speaking = () => {
   return (
     <Layout>
       {/* Hero with parallax */}
-      <section className="relative flex items-end min-h-[50vh] overflow-hidden">
+      <section className="relative flex items-end min-h-[60vh] overflow-hidden">
         <div className="parallax-bg">
           <img src={speakingImg} alt="" width={1920} height={1080} className="opacity-20" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-[hsl(var(--background)/0.6)] to-[hsl(var(--background)/0.3)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-[hsl(var(--background)/0.7)] to-transparent" />
         <div className="ambient-glow w-[500px] h-[500px] bg-primary/10 -top-20 -right-20" />
         <div className="container relative z-10 pb-16">
           <p className="section-label reveal mt-6 sm:mt-0">Speaking</p>

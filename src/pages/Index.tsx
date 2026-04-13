@@ -1,10 +1,11 @@
+import { useState } from "react";
 import Layout from "@/components/Layout";
 import Section from "@/components/SectionWrapper";
 import NewsletterBlock from "@/components/NewsletterBlock";
 import Card3D from "@/components/Card3D";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play, Clock } from "lucide-react";
 import heroImg from "@/assets/hero-ritesh.png";
 import bgAbout from "@/assets/bg-about.jpg";
 
@@ -13,6 +14,30 @@ import speakingImg from "@/assets/speaking-stage.jpg";
 import blogAi from "@/assets/blog-ai.jpg";
 import blogMigration from "@/assets/blog-migration.jpg";
 import blogWealth from "@/assets/blog-wealth.jpg";
+
+const homepageEpisodes = [
+  {
+    title: "Building AI-First Businesses From the Ground Up",
+    guest: "With a Serial AI Founder",
+    duration: "48 min",
+    tag: "Build",
+    youtubeId: "qp0HIF3SfI4",
+  },
+  {
+    title: "Cross-Border Entrepreneurship: India to Canada",
+    guest: "With a Cross-Border Operator",
+    duration: "52 min",
+    tag: "Move",
+    youtubeId: "UF8uR6Z6KLc",
+  },
+  {
+    title: "The Founder Mindset: Systems, Decisions & Leverage",
+    guest: "With a Business Systems Expert",
+    duration: "41 min",
+    tag: "Build",
+    youtubeId: "Lp7E973zozc",
+  },
+];
 
 const blogPosts = [
   {
@@ -35,7 +60,10 @@ const blogPosts = [
   },
 ];
 
-const Index = () => (
+const Index = () => {
+  const [playingId, setPlayingId] = useState<string | null>(null);
+
+  return (
   <Layout>
     {/* ============ HERO ============ */}
     <section className="snap-section relative min-h-[90vh] flex items-center overflow-hidden">
@@ -325,7 +353,7 @@ const Index = () => (
       </div>
     </section>
 
-    {/* ============ MEDIA PREVIEW — Center-aligned with floating cards ============ */}
+    {/* ============ MEDIA PREVIEW ============ */}
     <section
       className="relative overflow-hidden"
       style={{ paddingTop: "var(--section-py)", paddingBottom: "var(--section-py)" }}
@@ -335,21 +363,84 @@ const Index = () => (
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-[hsl(var(--background)/0.7)] to-[hsl(var(--background))]" />
       <div className="container relative z-10">
+        {/* Header */}
         <div className="max-w-3xl mx-auto text-center reveal-scale">
           <p className="section-label">Podcast & Media</p>
           <h2 className="mt-4 font-display text-h2 font-semibold tracking-tight">Real with Ritesh</h2>
           <p className="mt-6 text-muted-foreground leading-relaxed mx-auto" style={{ maxWidth: "60ch" }}>
-            Conversations, clips, and stories at the intersection of business, opportunity, growth, and modern founder
-            life.
+            Conversations, clips, and stories at the intersection of business, opportunity, growth, and modern founder life.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Button variant="gold" size="lg" asChild className="btn-magnetic">
-              <Link to="/media">Watch / Listen</Link>
-            </Button>
-            <Button variant="hero-outline" size="lg" asChild className="btn-magnetic">
-              <Link to="/media/invite">Invite Ritesh to Your Podcast</Link>
-            </Button>
+        </div>
+        {/* Episode carousel — full bleed, breaks out of container */}
+        <div
+          className="mt-12 overflow-hidden group/track -mx-[var(--container-px)]"
+        >
+          <div
+            className="flex gap-6 w-max px-[var(--container-px)] group-hover/track:[animation-play-state:paused]"
+            style={{
+              animation: "marquee-scroll 28s linear infinite",
+              animationPlayState: playingId ? "paused" : undefined,
+            }}
+          >
+            {[...homepageEpisodes, ...homepageEpisodes].map((ep, i) => (
+              <div
+                key={`${ep.title}-${i}`}
+                className="group w-[300px] shrink-0 rounded-2xl overflow-hidden border border-[hsl(var(--border))] bg-[hsl(var(--surface-secondary)/0.85)] hover:border-gold/30 transition-colors duration-300"
+              >
+                <div className="relative aspect-video overflow-hidden bg-[hsl(var(--surface-tertiary))]">
+                  {playingId === `${ep.youtubeId}-${i}` ? (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${ep.youtubeId}?autoplay=1&rel=0`}
+                      title={ep.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  ) : (
+                    <>
+                      <img
+                        src={`https://img.youtube.com/vi/${ep.youtubeId}/mqdefault.jpg`}
+                        alt={ep.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors duration-300" />
+                      <button
+                        onClick={() => setPlayingId(`${ep.youtubeId}-${i}`)}
+                        className="absolute inset-0 flex items-center justify-center"
+                        aria-label={`Play ${ep.title}`}
+                      >
+                        <div className="h-11 w-11 rounded-full bg-gold/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Play size={16} className="text-black ml-0.5" fill="black" />
+                        </div>
+                      </button>
+                      <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest bg-gold text-black px-2 py-0.5 rounded-full pointer-events-none">
+                        {ep.tag}
+                      </span>
+                    </>
+                  )}
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display text-sm font-semibold leading-snug group-hover:text-gold transition-colors duration-300 line-clamp-2">
+                    {ep.title}
+                  </h3>
+                  <p className="mt-1.5 text-xs text-muted-foreground">{ep.guest}</p>
+                  <div className="mt-3 flex items-center gap-1.5 text-xs text-muted-foreground/60">
+                    <Clock size={11} />
+                    {ep.duration}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
+        {/* CTAs */}
+        <div className="mt-10 flex flex-wrap justify-center gap-4 reveal delay-4">
+          <Button variant="gold" size="lg" asChild className="btn-magnetic">
+            <Link to="/media">See All Episodes</Link>
+          </Button>
+          <Button variant="hero-outline" size="lg" asChild className="btn-magnetic">
+            <Link to="/media/invite">Invite Ritesh to Your Podcast</Link>
+          </Button>
         </div>
       </div>
     </section>
@@ -463,6 +554,7 @@ const Index = () => (
       </div>
     </section>
   </Layout>
-);
+  );
+};
 
 export default Index;

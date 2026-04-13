@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Check } from "lucide-react";
+import bgAbout from "@/assets/bg-about.jpg";
 
 const InviteRitesh = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -20,7 +21,12 @@ const InviteRitesh = () => {
 
   return (
     <Layout>
-      <section className="relative flex items-end min-h-[40vh] overflow-hidden">
+      <section className="relative flex items-end min-h-[50vh] overflow-hidden">
+        <div className="parallax-bg">
+          <img src={bgAbout} alt="" width={1920} height={1080} className="opacity-15" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-[hsl(var(--background)/0.7)] to-transparent" />
+        <div className="ambient-glow w-[400px] h-[400px] bg-gold/5 -top-20 -left-20" />
         <div className="container relative z-10 pb-16">
           <p className="section-label reveal mt-6 sm:mt-0">Media</p>
           <h1 className="mt-4 font-display text-h1 font-bold tracking-tight reveal delay-1">
